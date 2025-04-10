@@ -93,15 +93,32 @@ function updateAverageEmotion() {
 // 初始化顯示
 updateAverageEmotion();
 
+// 漢堡菜單控制
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// 點擊導航連結時關閉菜單
+document.querySelectorAll('nav ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
 // 導航欄滾動效果
 window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
+    const header = document.querySelector('header');
     if (window.scrollY > 50) {
-        nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
-        nav.style.backgroundColor = 'transparent';
-        nav.style.boxShadow = 'none';
+        header.style.backgroundColor = 'transparent';
+        header.style.boxShadow = 'none';
     }
 });
 
