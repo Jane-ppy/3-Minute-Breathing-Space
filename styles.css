@@ -189,29 +189,82 @@ section {
     line-height: 1.5;
 }
 
+/* 冥想之旅部分 */
+#journey {
+    text-align: center;
+    background-color: var(--white);
+}
+
+.journey-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#journey h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+#journey p {
+    color: var(--light-text);
+    margin-bottom: 3rem;
+    font-size: 1rem;
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.journey-card {
+    text-align: center;
+}
+
+.journey-card .icon {
+    margin-bottom: 1rem;
+}
+
+.journey-card .icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.journey-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.journey-card p {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
 /* 資源部分 */
 #resources {
-    background-color: var(--secondary-color);
+    text-align: center;
 }
 
 .resources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .resource-card {
-    background-color: var(--white);
+    text-align: center;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
+    background-color: var(--white);
 }
 
 .resource-card h3 {
-    color: var(--primary-color);
     margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .resource-card ul {
@@ -220,26 +273,18 @@ section {
 
 .resource-card li {
     margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.resource-card li:before {
-    content: "•";
-    color: var(--primary-color);
-    position: absolute;
-    left: 0;
+    color: var(--light-text);
+    font-size: 0.9rem;
 }
 
 /* 記錄部分 */
 #tracker {
-    background-color: var(--white);
+    text-align: center;
 }
 
 .tracker-container {
     max-width: 600px;
     margin: 0 auto;
-    text-align: center;
 }
 
 .tracker-stats {
@@ -253,72 +298,16 @@ section {
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--primary-color);
     display: block;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     color: var(--light-text);
-}
-
-/* 關於部分 */
-#about {
-    background-color: var(--secondary-color);
-}
-
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about-content p {
-    margin-bottom: 1rem;
-}
-
-.disclaimer {
-    font-style: italic;
-    color: var(--light-text);
-}
-
-/* 模態框 */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 2000;
-}
-
-.modal-content {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 500px;
-    margin: 10% auto;
-    text-align: center;
-}
-
-.emotion-options {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
-}
-
-.emotion-btn {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.emotion-btn:hover {
-    transform: scale(1.2);
+    font-size: 0.9rem;
 }
 
 /* 頁腳 */
@@ -332,7 +321,8 @@ footer {
 
 /* 響應式設計 */
 @media (max-width: 1024px) {
-    .benefits-grid {
+    .benefits-grid,
+    .resources-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -358,6 +348,7 @@ footer {
     }
 
     .benefits-grid,
+    .resources-grid,
     .journey-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
