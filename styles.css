@@ -1,11 +1,11 @@
 /* 全局樣式 */
 :root {
     --primary-color: #e67e5a;
-    --text-color: #333333;
-    --light-text: #666666;
+    --secondary-color: #f5f7fa;
+    --text-color: #2c3e50;
+    --light-text: #666;
     --white: #ffffff;
-    --background: #ffffff;
-    --shadow: 0 2px 5px rgba(0,0,0,0.05);
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 * {
@@ -18,13 +18,13 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--background);
+    background-color: var(--white);
 }
 
 /* 導航欄 */
 header {
     background-color: var(--white);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
     top: 0;
@@ -41,21 +41,23 @@ nav {
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 500;
     color: var(--primary-color);
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    gap: 2rem;
+}
+
+nav ul li {
+    margin-left: 2rem;
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--text-color);
-    font-size: 1rem;
     font-weight: 400;
     transition: color 0.3s;
 }
@@ -66,54 +68,50 @@ nav ul li a:hover {
 
 /* 主頁面 */
 main {
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 section {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 6rem 2rem;
 }
 
 #hero {
+    background-color: var(--white);
     text-align: center;
-    padding: 6rem 2rem 4rem;
+    padding: 8rem 2rem 6rem;
 }
 
 #hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
     color: var(--text-color);
     font-weight: 500;
 }
 
 #hero h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--text-color);
     font-weight: 400;
 }
 
 .tagline {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
     color: var(--light-text);
 }
 
 .cta-buttons {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    margin-top: 3rem;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.75rem 2rem;
-    border-radius: 4px;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 1rem;
     transition: all 0.3s;
     cursor: pointer;
     border: none;
@@ -126,145 +124,100 @@ section {
 
 .btn.secondary {
     background-color: transparent;
-    border: 1px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
 
 .btn:hover {
-    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
 }
 
 /* 好處部分 */
 #benefits {
-    text-align: center;
+    background-color: var(--white);
+    padding: 6rem 2rem;
 }
 
 #benefits h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 
 .section-description {
-    margin-bottom: 3rem;
+    text-align: center;
+    margin-bottom: 4rem;
     color: var(--light-text);
-    font-size: 1rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.1rem;
 }
 
 .benefits-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .benefit-card {
     text-align: center;
     padding: 2rem;
-    background-color: var(--white);
+    background-color: var(--secondary-color);
+    border-radius: 10px;
     transition: transform 0.3s;
 }
 
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
 .benefit-card .icon {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .benefit-card .icon img {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
 }
 
 .benefit-card h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
     font-weight: 500;
 }
 
 .benefit-card p {
     color: var(--light-text);
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* 冥想之旅部分 */
-#journey {
-    text-align: center;
-    background-color: var(--white);
-}
-
-.journey-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#journey h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-#journey p {
-    color: var(--light-text);
-    margin-bottom: 3rem;
-    font-size: 1rem;
-}
-
-.journey-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.journey-card {
-    text-align: center;
-}
-
-.journey-card .icon {
-    margin-bottom: 1rem;
-}
-
-.journey-card .icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-.journey-card h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-    font-weight: 500;
-}
-
-.journey-card p {
-    color: var(--light-text);
-    font-size: 0.9rem;
-    margin-bottom: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 /* 資源部分 */
 #resources {
-    text-align: center;
+    background-color: var(--secondary-color);
 }
 
 .resources-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .resource-card {
-    text-align: center;
-    padding: 2rem;
     background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
 }
 
 .resource-card h3 {
+    color: var(--primary-color);
     margin-bottom: 1rem;
-    font-size: 1.1rem;
-    font-weight: 500;
 }
 
 .resource-card ul {
@@ -273,18 +226,26 @@ section {
 
 .resource-card li {
     margin-bottom: 0.5rem;
-    color: var(--light-text);
-    font-size: 0.9rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.resource-card li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
 }
 
 /* 記錄部分 */
 #tracker {
-    text-align: center;
+    background-color: var(--white);
 }
 
 .tracker-container {
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
 
 .tracker-stats {
@@ -298,22 +259,58 @@ section {
 }
 
 .stat-number {
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--primary-color);
+    font-size: 2.5rem;
     display: block;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     color: var(--light-text);
-    font-size: 0.9rem;
+}
+
+/* 模態框 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.emotion-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.emotion-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.emotion-btn:hover {
+    transform: scale(1.2);
 }
 
 /* 頁腳 */
 footer {
-    border-top: 1px solid rgba(0,0,0,0.1);
-    color: var(--light-text);
+    background-color: var(--text-color);
+    color: var(--white);
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
@@ -321,8 +318,7 @@ footer {
 
 /* 響應式設計 */
 @media (max-width: 1024px) {
-    .benefits-grid,
-    .resources-grid {
+    .benefits-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -339,8 +335,12 @@ footer {
         justify-content: center;
     }
 
+    nav ul li {
+        margin: 0.5rem 1rem;
+    }
+
     #hero h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     #hero h2 {
@@ -348,18 +348,15 @@ footer {
     }
 
     .benefits-grid,
-    .resources-grid,
     .journey-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
 
     .btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
+        display: block;
+        margin: 1rem auto;
+        width: 80%;
+        max-width: 300px;
     }
 } 
