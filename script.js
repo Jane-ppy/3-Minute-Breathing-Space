@@ -91,4 +91,62 @@ function updateAverageEmotion() {
 }
 
 // 初始化顯示
-updateAverageEmotion(); 
+updateAverageEmotion();
+
+// 導航欄滾動效果
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+    } else {
+        nav.style.backgroundColor = 'transparent';
+        nav.style.boxShadow = 'none';
+    }
+});
+
+// 滾動動畫
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
+
+// 模態框控制
+function showModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'flex';
+    modal.classList.add('show');
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('show');
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+// 導航連結點擊效果
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// 開始練習按鈕
+document.querySelector('.btn.primary').addEventListener('click', (e) => {
+    e.preventDefault();
+    showModal();
+}); 
