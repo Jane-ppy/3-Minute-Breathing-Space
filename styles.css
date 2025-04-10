@@ -1,4 +1,13 @@
 /* 全局樣式 */
+:root {
+    --primary-color: #e67e5a;
+    --secondary-color: #f5f7fa;
+    --text-color: #2c3e50;
+    --light-text: #666;
+    --white: #ffffff;
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,13 +17,14 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--text-color);
+    background-color: var(--white);
 }
 
 /* 導航欄 */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--white);
+    box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
     top: 0;
@@ -33,7 +43,15 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.asterisk {
+    color: var(--primary-color);
+    font-size: 1.2em;
 }
 
 nav ul {
@@ -47,12 +65,12 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #2c3e50;
+    color: var(--text-color);
     transition: color 0.3s;
 }
 
 nav ul li a:hover {
-    color: #3498db;
+    color: var(--primary-color);
 }
 
 /* 主頁面 */
@@ -65,7 +83,7 @@ section {
 }
 
 #hero {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #c3cfe2 100%);
     text-align: center;
     padding: 6rem 2rem;
 }
@@ -73,13 +91,19 @@ section {
 #hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--text-color);
 }
 
 #hero h2 {
     font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.tagline {
+    font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #34495e;
+    color: var(--light-text);
 }
 
 .cta-buttons {
@@ -94,27 +118,29 @@ section {
     font-weight: bold;
     margin: 0 1rem;
     transition: all 0.3s;
+    cursor: pointer;
+    border: none;
 }
 
 .btn.primary {
-    background-color: #3498db;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 .btn.secondary {
     background-color: transparent;
-    border: 2px solid #3498db;
-    color: #3498db;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
 /* 好處部分 */
 #benefits {
-    background-color: #fff;
+    background-color: var(--white);
 }
 
 #benefits h2 {
@@ -122,10 +148,10 @@ section {
     margin-bottom: 1rem;
 }
 
-#benefits > p {
+.section-description {
     text-align: center;
     margin-bottom: 3rem;
-    color: #666;
+    color: var(--light-text);
 }
 
 .benefits-grid {
@@ -139,7 +165,7 @@ section {
 .benefit-card {
     text-align: center;
     padding: 2rem;
-    background-color: #f8f9fa;
+    background-color: var(--secondary-color);
     border-radius: 10px;
     transition: transform 0.3s;
 }
@@ -155,55 +181,145 @@ section {
 
 .benefit-card h3 {
     margin-bottom: 1rem;
-    color: #2c3e50;
+    color: var(--text-color);
 }
 
-/* 開始部分 */
-#start {
-    background-color: #f5f7fa;
+/* 資源部分 */
+#resources {
+    background-color: var(--secondary-color);
 }
 
-#start h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-#start > p {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #666;
-}
-
-.features-grid {
+.resources-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.feature-card {
-    text-align: center;
+.resource-card {
+    background-color: var(--white);
     padding: 2rem;
-    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
-.feature-card .icon {
+.resource-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.resource-card ul {
+    list-style: none;
+}
+
+.resource-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.resource-card li:before {
+    content: "•";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* 記錄部分 */
+#tracker {
+    background-color: var(--white);
+}
+
+.tracker-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tracker-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
     font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--light-text);
+}
+
+/* 關於部分 */
+#about {
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
     margin-bottom: 1rem;
 }
 
-.feature-card h3 {
-    margin-bottom: 1rem;
-    color: #2c3e50;
+.disclaimer {
+    font-style: italic;
+    color: var(--light-text);
+}
+
+/* 模態框 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.emotion-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.emotion-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.emotion-btn:hover {
+    transform: scale(1.2);
 }
 
 /* 頁腳 */
 footer {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--text-color);
+    color: var(--white);
     text-align: center;
     padding: 2rem;
 }
@@ -217,10 +333,12 @@ footer {
 
     nav ul {
         margin-top: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     nav ul li {
-        margin: 0 1rem;
+        margin: 0.5rem 1rem;
     }
 
     #hero h1 {
@@ -235,5 +353,13 @@ footer {
         display: block;
         margin: 1rem auto;
         width: 80%;
+    }
+
+    .emotion-options {
+        flex-wrap: wrap;
+    }
+
+    .emotion-btn {
+        margin: 0.5rem;
     }
 } 

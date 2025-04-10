@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>三分鐘呼吸空間</title>
+    <title>三分鐘呼吸空間 | Three-Minute Breathing Space</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">三分鐘呼吸空間</div>
+            <div class="logo">
+                <span class="asterisk">✧</span>
+                三分鐘呼吸空間
+            </div>
             <ul>
                 <li><a href="#home">首頁</a></li>
                 <li><a href="#benefits">冥想好處</a></li>
                 <li><a href="#resources">冥想資源</a></li>
                 <li><a href="#about">關於我們</a></li>
-                <li><a href="#record">冥想記錄</a></li>
+                <li><a href="#tracker">冥想記錄</a></li>
             </ul>
         </nav>
     </header>
@@ -23,7 +27,8 @@
     <main>
         <section id="hero">
             <h1>三分鐘呼吸空間</h1>
-            <h2>活在當下，專注呼吸，讓心靈找到平靜</h2>
+            <h2>Three-Minute Breathing Space</h2>
+            <p class="tagline">活在當下，專注呼吸，讓心靈找到平靜</p>
             <div class="cta-buttons">
                 <a href="#start" class="btn primary">開始冥想</a>
                 <a href="#learn" class="btn secondary">了解更多</a>
@@ -31,57 +36,108 @@
         </section>
 
         <section id="benefits">
-            <h2>冥想帶來的好處</h2>
-            <p>透過規律練習，獲得身心平衡，提升生活品質</p>
+            <h2>正念冥想的好處</h2>
+            <p class="section-description">透過規律練習，獲得身心平衡，提升生活品質</p>
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <span class="icon">🌱</span>
-                    <h3>減輕壓力</h3>
-                    <p>通過正念呼吸緩解日常壓力，找回內在平靜</p>
+                    <span class="icon">🧠</span>
+                    <h3>前額葉皮質活動</h3>
+                    <p>增強大腦前額葉皮質的活動，提升專注力和決策能力</p>
                 </div>
                 <div class="benefit-card">
-                    <span class="icon">🎯</span>
-                    <h3>提升專注</h3>
-                    <p>培養當下覺知，增強注意力和工作效率</p>
+                    <span class="icon">🤝</span>
+                    <h3>人際互動改善</h3>
+                    <p>提升同理心和溝通能力，改善人際關係</p>
                 </div>
                 <div class="benefit-card">
-                    <span class="icon">🌊</span>
-                    <h3>情緒平衡</h3>
-                    <p>更好地理解和管理情緒，保持心理健康</p>
+                    <span class="icon">🔄</span>
+                    <h3>減少反芻思維</h3>
+                    <p>降低負面思維的循環，提升心理健康</p>
                 </div>
                 <div class="benefit-card">
-                    <span class="icon">🌙</span>
-                    <h3>改善睡眠</h3>
-                    <p>幫助放鬆身心，提高睡眠質量和生活品質</p>
+                    <span class="icon">⏳</span>
+                    <h3>減輕未來焦慮</h3>
+                    <p>減少對未來的擔憂，活在當下</p>
                 </div>
             </div>
         </section>
 
-        <section id="start">
-            <h2>開始您的冥想之旅</h2>
-            <p>花一點時間停下腳步，專注呼吸，與當下時刻建立連結。<br>只需三分鐘，就能轉變您的心境。</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="icon">🎯</span>
-                    <h3>專注當下</h3>
-                    <p>通過呼吸練習，培養正念覺知</p>
+        <section id="resources">
+            <h2>冥想資源</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>呼吸技巧</h3>
+                    <ul>
+                        <li>開放覺知練習</li>
+                        <li>心跳覺知練習</li>
+                        <li>呼吸錨定練習</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
-                    <span class="icon">🌊</span>
-                    <h3>放鬆身心</h3>
-                    <p>釋放壓力，找回內在平靜</p>
+                <div class="resource-card">
+                    <h3>引導冥想</h3>
+                    <ul>
+                        <li>三分鐘呼吸空間</li>
+                        <li>身體掃描冥想</li>
+                        <li>正念行走冥想</li>
+                    </ul>
                 </div>
-                <div class="feature-card">
-                    <span class="icon">🌱</span>
-                    <h3>持續成長</h3>
-                    <p>建立日常習慣，滋養心靈</p>
+                <div class="resource-card">
+                    <h3>快速練習</h3>
+                    <ul>
+                        <li>一分鐘呼吸練習</li>
+                        <li>情緒覺察練習</li>
+                        <li>感官覺知練習</li>
+                    </ul>
                 </div>
+            </div>
+        </section>
+
+        <section id="tracker">
+            <h2>冥想記錄</h2>
+            <div class="tracker-container">
+                <div class="tracker-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-meditations">0</span>
+                        <span class="stat-label">總冥想次數</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="avg-emotion">😊</span>
+                        <span class="stat-label">平均情緒狀態</span>
+                    </div>
+                </div>
+                <button id="log-meditation" class="btn primary">記錄冥想</button>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>關於我們</h2>
+            <div class="about-content">
+                <p>本網站是 CCI4900 畢業專題的一部分，旨在提供一個簡單易用的正念冥想平台。</p>
+                <p>我們相信，通過每天三分鐘的正念練習，可以幫助人們改善心理健康，提升生活品質。</p>
+                <p class="disclaimer">注意：本網站的冥想記錄功能僅用於學術研究目的，所有數據都是匿名的。</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 三分鐘呼吸空間. All rights reserved.</p>
+        <p>&copy; 2024 三分鐘呼吸空間 | CCI4900 畢業專題</p>
     </footer>
+
+    <!-- 情緒記錄模態框 -->
+    <div id="emotion-modal" class="modal">
+        <div class="modal-content">
+            <h3>請選擇您目前的情緒狀態</h3>
+            <div class="emotion-options">
+                <button class="emotion-btn" data-emotion="😔">非常低落</button>
+                <button class="emotion-btn" data-emotion="😕">有點低落</button>
+                <button class="emotion-btn" data-emotion="😐">一般</button>
+                <button class="emotion-btn" data-emotion="🙂">還不錯</button>
+                <button class="emotion-btn" data-emotion="😊">非常好</button>
+            </div>
+            <button id="submit-emotion" class="btn primary">提交</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html> 
