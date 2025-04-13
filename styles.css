@@ -427,138 +427,237 @@ footer {
 
 /* 專案起源部分 */
 #project-origin {
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-    padding: 4rem 2rem;
-    color: var(--text-primary);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0;
 }
 
-.project-origin-header {
-    max-width: 800px;
-    margin: 0 auto 4rem;
+.section-header {
+    background-color: var(--primary-color);
+    padding: 4rem 2rem;
     text-align: center;
 }
 
-.project-origin-header h2 {
+.section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--text-accent);
+    color: var(--text-light);
+}
+
+.section-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
 .content-section {
-    max-width: 1000px;
-    margin: 0 auto 4rem;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
+    background-color: var(--bg-light);
+    padding: 4rem 2rem;
+    color: var(--text-dark);
+}
+
+.content-section:nth-child(even) {
+    background-color: var(--bg-alt);
 }
 
 .section-title {
     display: flex;
     align-items: center;
-    gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .section-number {
-    width: 40px;
-    height: 40px;
-    background: var(--accent-color);
-    color: white;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }
 
-.stats-grid {
+.devices-illustration {
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.devices-illustration img {
+    max-width: 100%;
+    height: auto;
+}
+
+.brain-drain-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr 2fr;
     gap: 2rem;
     margin: 3rem 0;
+    align-items: center;
 }
 
-.stat-card {
-    background: rgba(255, 255, 255, 0.1);
+.brain-drain-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.brain-drain-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: center;
+}
+
+.stat-circle {
+    width: 200px;
+    height: 200px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
     padding: 2rem;
-    border-radius: 1rem;
     text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: bold;
-    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-text {
+    line-height: 1.6;
+}
+
+.stat-text p {
     margin-bottom: 1rem;
 }
 
-.stat-label {
-    font-size: 1.1rem;
-    line-height: 1.4;
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.impact-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
 }
 
 .steps-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    margin: 3rem 0;
 }
 
 .step-card {
-    background: rgba(255, 255, 255, 0.1);
+    background-color: var(--bg-light);
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
-.step-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+.step-card h4 {
+    color: var(--primary-color);
+    margin: 1rem 0;
+    font-size: 1.25rem;
 }
 
-.step-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 1.5rem;
+.timeline-container {
+    margin: 4rem 0;
+    text-align: center;
+    position: relative;
 }
 
-.step-icon svg {
-    width: 100%;
-    height: 100%;
-    stroke: var(--accent-color);
+.timeline-circle {
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin: 2rem auto;
 }
 
-.step-title {
-    font-size: 1.3rem;
-    color: var(--text-accent);
+.timeline-label {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-sublabel {
+    color: var(--text-secondary);
+}
+
+.practice-benefits {
+    max-width: 800px;
+    margin: 3rem auto;
+    line-height: 1.6;
+}
+
+.practice-benefits p {
+    margin-bottom: 1.5rem;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 2rem;
+}
+
+.benefit-item img {
+    width: 64px;
+    height: 64px;
     margin-bottom: 1rem;
 }
 
+.benefit-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
 .quote-section {
-    max-width: 800px;
-    margin: 4rem auto 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 4rem 2rem;
     text-align: center;
 }
 
-.quote {
-    font-size: 1.8rem;
-    font-style: italic;
-    color: var(--text-accent);
-    margin-bottom: 2rem;
+.quote-section blockquote {
+    font-size: 2rem;
     line-height: 1.4;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-style: italic;
 }
 
 .call-to-action {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
+    font-size: 1.25rem;
 }
 
 /* 參考文獻頁面 */
@@ -716,11 +815,11 @@ footer {
         padding: 3rem 1rem;
     }
 
-    .project-origin-header h2 {
+    .section-header h2 {
         font-size: 2rem;
     }
 
-    .quote {
+    .quote-section blockquote {
         font-size: 1.5rem;
     }
 
@@ -749,11 +848,11 @@ footer {
         text-align: center;
     }
 
-    .project-origin-header h2 {
+    .section-header h2 {
         font-size: 1.5rem;
     }
 
-    .quote {
+    .quote-section blockquote {
         font-size: 1.2rem;
     }
 
@@ -763,6 +862,15 @@ footer {
 
     .section-title h3 {
         font-size: 1.3rem;
+    }
+
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-circle {
+        width: 150px;
+        height: 150px;
     }
 }
 
