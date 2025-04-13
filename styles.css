@@ -425,6 +425,165 @@ footer {
     font-size: 0.9rem;
 }
 
+/* 專案起源部分 */
+#project-origin {
+    background-color: var(--secondary-color);
+    padding: 6rem 2rem;
+}
+
+.project-origin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-origin-container h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.project-origin-content {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    align-items: start;
+    margin-bottom: 4rem;
+}
+
+.project-origin-text {
+    order: 1;
+}
+
+.project-origin-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.project-origin-image {
+    order: 2;
+    min-height: 300px;
+    background-color: var(--white);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-origin-image::before {
+    content: '圖片載入中...';
+    position: absolute;
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.project-origin-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+}
+
+.infographic {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+    margin-top: 4rem;
+}
+
+.infographic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.infographic-item h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.infographic-item p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+}
+
+.infographic-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.infographic-item a:hover {
+    text-decoration: underline;
+}
+
+/* 參考文獻頁面 */
+#references {
+    padding: 8rem 2rem 6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#references h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.references-container {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow);
+}
+
+.reference-item {
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.reference-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.reference-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.reference-content {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.reference-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.reference-link a:hover {
+    text-decoration: underline;
+}
+
 /* 響應式設計 */
 @media (max-width: 1024px) {
     .benefits-grid {
@@ -437,6 +596,24 @@ footer {
     
     .resources-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-origin-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .project-origin-text {
+        order: 1;
+    }
+
+    .project-origin-image {
+        order: 2;
+        min-height: 250px;
+    }
+
+    .infographic-grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -497,6 +674,28 @@ footer {
     section {
         padding: 4rem 1.5rem;
     }
+
+    #project-origin {
+        padding: 4rem 1.5rem;
+    }
+
+    .project-origin-container h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-origin-text p {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .project-origin-image {
+        min-height: 200px;
+    }
+
+    .infographic {
+        padding: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -516,6 +715,14 @@ footer {
     .btn {
         width: 100%;
         text-align: center;
+    }
+
+    .project-origin-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .project-origin-image {
+        min-height: 180px;
     }
 }
 
