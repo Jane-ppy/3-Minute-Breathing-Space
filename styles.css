@@ -2,10 +2,16 @@
 :root {
     --primary-color: #e67e5a;
     --secondary-color: #f5f7fa;
-    --text-color: #2c3e50;
-    --light-text: #666;
-    --white: #ffffff;
-    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --text-primary: #2c3e50;
+    --text-secondary: #666;
+    --text-light: #ffffff;
+    --bg-light: #ffffff;
+    --bg-alt: #f8f9fa;
+    --bg-gradient-start: #e67e5a;
+    --bg-gradient-end: #f39c7d;
+    --accent-color: #e67e5a;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
     --transition: all 0.3s ease;
 }
 
@@ -21,15 +27,15 @@
 body {
     font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--white);
+    color: var(--text-primary);
+    background-color: var(--text-light);
     text-rendering: optimizeLegibility;
 }
 
 /* 導航欄 */
 header {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
+    background-color: var(--text-light);
+    box-shadow: var(--shadow-md);
     position: fixed;
     width: 100%;
     top: 0;
@@ -61,7 +67,7 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
+    color: var(--text-primary);
     font-weight: 400;
     transition: var(--transition);
     position: relative;
@@ -94,7 +100,7 @@ nav ul li a:hover::after {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--text-color);
+    background-color: var(--text-primary);
     margin: 5px 0;
     transition: var(--transition);
 }
@@ -122,7 +128,7 @@ section.fade-in {
 }
 
 #home {
-    background-color: var(--white);
+    background-color: var(--text-light);
     text-align: center;
     padding: 8rem 2rem 6rem;
     min-height: 100vh;
@@ -135,7 +141,7 @@ section.fade-in {
 #home h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-primary);
     font-weight: 500;
     animation: fadeInUp 1s ease;
 }
@@ -143,7 +149,7 @@ section.fade-in {
 #home h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    color: var(--text-color);
+    color: var(--text-primary);
     font-weight: 400;
     animation: fadeInUp 1s ease 0.2s;
 }
@@ -151,7 +157,7 @@ section.fade-in {
 .tagline {
     font-size: 1.2rem;
     margin-bottom: 2.5rem;
-    color: var(--light-text);
+    color: var(--text-secondary);
     animation: fadeInUp 1s ease 0.4s;
 }
 
@@ -176,7 +182,7 @@ section.fade-in {
 
 .btn.primary {
     background-color: var(--primary-color);
-    color: var(--white);
+    color: var(--text-light);
 }
 
 .btn.secondary {
@@ -187,7 +193,7 @@ section.fade-in {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
 }
 
 .btn::after {
@@ -207,7 +213,7 @@ section.fade-in {
 
 /* 好處部分 */
 #benefits {
-    background-color: var(--white);
+    background-color: var(--text-light);
     padding: 6rem 2rem;
 }
 
@@ -221,7 +227,7 @@ section.fade-in {
 .section-description {
     text-align: center;
     margin-bottom: 4rem;
-    color: var(--light-text);
+    color: var(--text-secondary);
     font-size: 1.1rem;
 }
 
@@ -280,12 +286,12 @@ section.fade-in {
 
 .benefit-card h3 {
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-primary);
     font-weight: 500;
 }
 
 .benefit-card p {
-    color: var(--light-text);
+    color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -304,10 +310,10 @@ section.fade-in {
 }
 
 .resource-card {
-    background-color: var(--white);
+    background-color: var(--text-light);
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
 }
 
 .resource-card h3 {
@@ -334,7 +340,7 @@ section.fade-in {
 
 /* 記錄部分 */
 #tracker {
-    background-color: var(--white);
+    background-color: var(--text-light);
 }
 
 .tracker-container {
@@ -360,7 +366,7 @@ section.fade-in {
 }
 
 .stat-label {
-    color: var(--light-text);
+    color: var(--text-secondary);
 }
 
 /* 動畫 */
@@ -389,7 +395,7 @@ section.fade-in {
 }
 
 .modal-content {
-    background-color: var(--white);
+    background-color: var(--text-light);
     padding: 2rem;
     border-radius: 10px;
     max-width: 500px;
@@ -418,8 +424,8 @@ section.fade-in {
 
 /* 頁腳 */
 footer {
-    background-color: var(--text-color);
-    color: var(--white);
+    background-color: var(--text-primary);
+    color: var(--text-light);
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
@@ -427,33 +433,33 @@ footer {
 
 /* 專案起源部分 */
 #project-origin {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
 }
 
 .section-header {
     background-color: var(--primary-color);
     padding: 4rem 2rem;
     text-align: center;
+    color: var(--text-light);
 }
 
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--text-light);
 }
 
 .section-header p {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .content-section {
-    background-color: var(--bg-light);
     padding: 4rem 2rem;
-    color: var(--text-dark);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .content-section:nth-child(even) {
@@ -477,6 +483,12 @@ footer {
     justify-content: center;
     font-size: 1.5rem;
     margin-right: 1rem;
+    font-weight: bold;
+}
+
+.section-title h3 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
 }
 
 .devices-illustration {
@@ -492,9 +504,9 @@ footer {
 .brain-drain-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    margin: 3rem 0;
+    gap: 3rem;
     align-items: center;
+    margin: 3rem 0;
 }
 
 .brain-drain-image img {
@@ -505,6 +517,7 @@ footer {
 .brain-drain-content p {
     margin-bottom: 1rem;
     line-height: 1.6;
+    font-size: 1.1rem;
 }
 
 .stats-container {
@@ -541,6 +554,7 @@ footer {
 
 .stat-text p {
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .impact-grid {
@@ -552,9 +566,14 @@ footer {
 }
 
 .impact-item img {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     margin-bottom: 1rem;
+}
+
+.impact-item span {
+    font-size: 1.1rem;
+    color: var(--text-primary);
 }
 
 .steps-container {
@@ -570,11 +589,17 @@ footer {
     border-radius: 1rem;
     text-align: center;
     box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
 }
 
 .step-card h4 {
     color: var(--primary-color);
-    margin: 1rem 0;
+    margin-bottom: 1rem;
     font-size: 1.25rem;
 }
 
@@ -615,6 +640,7 @@ footer {
 
 .practice-benefits p {
     margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .benefits-grid {
@@ -671,14 +697,14 @@ footer {
     font-size: 2.5rem;
     margin-bottom: 3rem;
     text-align: center;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .references-container {
-    background-color: var(--white);
+    background-color: var(--text-light);
     padding: 2rem;
     border-radius: 0.75rem;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
 }
 
 .reference-item {
@@ -697,12 +723,12 @@ footer {
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .reference-content {
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    color: var(--text-primary);
 }
 
 .reference-link a {
@@ -764,7 +790,7 @@ footer {
         right: -100%;
         width: 100%;
         height: 100vh;
-        background-color: var(--white);
+        background-color: var(--text-light);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -901,4 +927,52 @@ footer {
 /* 延遲動畫 */
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; } 
+.delay-3 { animation-delay: 0.6s; }
+
+@media (max-width: 992px) {
+    .brain-drain-container,
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .quote-section blockquote {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .section-title h3 {
+        font-size: 1.3rem;
+    }
+} 
