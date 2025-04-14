@@ -1060,11 +1060,14 @@ footer {
 .origin-illustration {
     flex: 1;
     max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .origin-illustration img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 400px;
     object-fit: contain;
 }
 
