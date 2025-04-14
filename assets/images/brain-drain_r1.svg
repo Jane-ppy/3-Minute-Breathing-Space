@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+    <!-- Brain -->
+    <path d="M250 100 C 400 100, 450 200, 450 300 C 450 400, 350 450, 250 450 C 150 450, 50 400, 50 300 C 50 200, 100 100, 250 100" fill="#e6e6e6"/>
+    <!-- Orange bottom part -->
+    <path d="M50 300 C 50 400, 150 450, 250 450 C 350 450, 450 400, 450 300 L 450 350 C 450 450, 350 500, 250 500 C 150 500, 50 450, 50 350 Z" fill="#e67e5a"/>
+    <!-- Pipe -->
+    <rect x="240" y="450" width="20" height="30" fill="#808080"/>
+    <!-- Drips -->
+    <circle cx="250" cy="490" r="3" fill="#e67e5a">
+        <animate attributeName="cy" from="490" to="520" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from="1" to="0" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="470" r="3" fill="#e67e5a">
+        <animate attributeName="cy" from="470" to="500" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from="1" to="0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="450" r="3" fill="#e67e5a">
+        <animate attributeName="cy" from="450" to="480" dur="2s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" from="1" to="0" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Puddle -->
+    <ellipse cx="250" cy="520" rx="30" ry="10" fill="#e67e5a" opacity="0.5">
+        <animate attributeName="rx" values="30;35;30" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.5;0.7;0.5" dur="3s" repeatCount="indefinite"/>
+    </ellipse>
+</svg> 
