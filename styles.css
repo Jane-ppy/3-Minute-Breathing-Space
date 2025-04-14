@@ -438,22 +438,41 @@ footer {
 }
 
 .section-header {
-    background-color: var(--primary-color);
-    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    padding: 6rem 2rem;
     text-align: center;
     color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.section-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0));
+    pointer-events: none;
 }
 
 .section-header h2 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
 }
 
 .section-header p {
     max-width: 800px;
     margin: 0 auto;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    position: relative;
+    font-weight: 300;
 }
 
 .content-section {
