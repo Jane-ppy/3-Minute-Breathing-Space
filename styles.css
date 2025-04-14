@@ -173,7 +173,7 @@ section.fade-in {
 .hero-section h1 {
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.4;
     color: var(--text-primary);
     width: 800px;
@@ -184,7 +184,7 @@ section.fade-in {
 .hero-section h2 {
     font-size: 2rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 300;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     width: 800px;
