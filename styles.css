@@ -1116,21 +1116,24 @@ footer {
 }
 
 .origin-content {
-    display: flex;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 400px 1fr;
     gap: 4rem;
     margin-top: 4rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 2rem;
+    align-items: center;
 }
 
 .origin-illustration {
-    flex: 1;
+    width: 100%;
     max-width: 400px;
+    height: auto;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
 }
 
 .origin-illustration img {
@@ -1140,71 +1143,34 @@ footer {
 }
 
 .origin-text {
-    flex: 2;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .origin-text h3 {
     font-size: 1.75rem;
     color: var(--text-primary);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.origin-text h3 .number {
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: var(--primary-color);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
     font-weight: 500;
+    margin-bottom: 0.75rem;
 }
 
 .origin-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin: 0;
 }
 
 @media (max-width: 768px) {
     .origin-content {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0 1rem;
     }
 
     .origin-illustration {
-        max-width: 100%;
+        max-width: 300px;
         margin: 0 auto;
-    }
-
-    .origin-text h3 {
-        font-size: 1.5rem;
-    }
-
-    .origin-text p {
-        font-size: 1rem;
-    }
-
-    .project-origin-header {
-        padding: 0 1rem;
-    }
-
-    .project-origin-header h2 {
-        font-size: 2rem;
-    }
-
-    .project-origin-header p {
-        font-size: 1.1rem;
     }
 } 
