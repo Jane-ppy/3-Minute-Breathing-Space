@@ -142,7 +142,7 @@ section.fade-in {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
-    font-weight: 500;
+    font-weight: 300;
     animation: fadeInUp 1s ease;
 }
 
@@ -177,6 +177,9 @@ section.fade-in {
     font-weight: 300;
     line-height: 1.4;
     color: var(--text-primary);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-section h2 {
@@ -185,6 +188,9 @@ section.fade-in {
     font-weight: 300;
     margin-bottom: 1.5rem;
     line-height: 1.6;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-section p {
@@ -193,6 +199,9 @@ section.fade-in {
     line-height: 1.8;
     color: var(--text-secondary);
     font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-buttons {
@@ -905,11 +914,13 @@ footer {
     .hero-section h1 {
         font-size: 2.5rem;
         margin-bottom: 1.2rem;
+        padding: 0 1rem;
     }
     
     .hero-section h2 {
         font-size: 1.6rem;
         margin-bottom: 1.2rem;
+        padding: 0 1rem;
     }
     
     .hero-section p {
