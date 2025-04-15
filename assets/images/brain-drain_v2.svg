@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 大腦 -->
+    <path d="M150 100C150 100 120 120 120 160C120 200 150 220 150 220C150 220 130 240 130 280C130 320 150 340 180 340C210 340 220 320 220 320C220 320 240 340 280 340C320 340 340 320 340 280C340 240 320 220 320 220C320 220 350 200 350 160C350 120 320 100 320 100C320 100 300 80 250 80C200 80 150 100 150 100Z" stroke="#808080" stroke-width="3" fill="#E7E9EC"/>
+    
+    <!-- 橙色部分 -->
+    <path d="M130 280C130 320 150 340 180 340C210 340 220 320 220 320C220 320 240 340 280 340C320 340 340 320 340 280C340 240 320 220 320 220L250 220L130 280Z" fill="#e67e5a"/>
+    
+    <!-- 水龍頭 -->
+    <path d="M240 340L280 340L280 360L240 360L240 340Z" fill="#808080"/>
+    <path d="M250 360L270 360L270 380L250 380L250 360Z" fill="#808080"/>
+    
+    <!-- 手機 -->
+    <rect x="220" y="420" width="60" height="100" rx="10" stroke="#808080" stroke-width="2" fill="none"/>
+    
+    <!-- 水滴動畫 -->
+    <g>
+        <!-- 第一滴水 -->
+        <path d="M255 380L265 380L260 390Z" fill="#e67e5a">
+            <animate attributeName="transform" attributeType="XML" type="translate" 
+                values="0,0; 0,15; 0,30" dur="1s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;0.5;0" dur="1s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- 第二滴水 -->
+        <path d="M255 390L265 390L260 400Z" fill="#e67e5a" opacity="0.7">
+            <animate attributeName="transform" attributeType="XML" type="translate" 
+                values="0,0; 0,15; 0,30" dur="1s" begin="0.3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0.3;0" dur="1s" begin="0.3s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- 第三滴水 -->
+        <path d="M255 400L265 400L260 410Z" fill="#e67e5a" opacity="0.4">
+            <animate attributeName="transform" attributeType="XML" type="translate" 
+                values="0,0; 0,15; 0,30" dur="1s" begin="0.6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0.2;0" dur="1s" begin="0.6s" repeatCount="indefinite"/>
+        </path>
+    </g>
+</svg> 

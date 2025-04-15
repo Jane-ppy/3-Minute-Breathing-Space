@@ -575,85 +575,88 @@ footer {
     height: auto;
 }
 
-.brain-drain-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-    align-items: center;
-    margin: 3rem 0;
+.brain-drain-section {
+    padding: 4rem 2rem;
+    background-color: var(--bg-light);
 }
 
-.brain-drain-image {
-    width: 100%;
-    max-width: 300px;
+.brain-drain-container {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.brain-drain-image img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    animation: floatAnimation 3s ease-in-out infinite;
-}
-
-@keyframes floatAnimation {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
 .brain-drain-content {
-    padding-left: 2rem;
-}
-
-.brain-drain-content p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 3rem;
-    margin: 3rem 0;
-    align-items: center;
-}
-
-.stat-circle {
-    width: 200px;
-    height: 200px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--text-light);
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.cognitive-decline,
+.brain-drain-phenomenon,
+.mental-health {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
     padding: 2rem;
-    text-align: center;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
 }
 
-.stat-number {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.brain-drain-phenomenon {
+    background-color: var(--bg-secondary);
 }
 
-.stat-text {
-    line-height: 1.6;
+.text-content {
+    flex: 1;
 }
 
-.stat-text p {
+.text-content h4 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.text-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.text-content p:last-child {
+    margin-bottom: 0;
+}
+
+.phone-icon,
+.brain-icon,
+.mental-icon {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .cognitive-decline,
+    .brain-drain-phenomenon,
+    .mental-health {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .phone-icon,
+    .brain-icon,
+    .mental-icon {
+        width: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .text-content h4 {
+        font-size: 1.25rem;
+    }
 }
 
 .impact-grid {
@@ -995,20 +998,6 @@ footer {
     .section-header p {
         font-size: 1.1rem;
     }
-
-    .brain-drain-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .brain-drain-image {
-        max-width: 250px;
-        margin: 0 auto 2rem;
-    }
-
-    .brain-drain-content {
-        padding-left: 0;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1135,37 +1124,29 @@ footer {
 
 .project-origin-header {
     text-align: center;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .project-origin-header h2 {
     font-size: 2.5rem;
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     font-weight: 400;
 }
 
 .project-origin-header p {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.8;
     color: var(--text-secondary);
-    margin: 0 auto 1rem;
-    max-width: fit-content;
-}
-
-.project-origin-header p:last-child {
+    margin-bottom: 1.5rem;
     white-space: nowrap;
-    margin-bottom: 0;
 }
 
 .origin-content {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 400px 1fr;
     gap: 4rem;
     margin-top: 4rem;
     max-width: 1200px;
@@ -1177,7 +1158,8 @@ footer {
 
 .origin-illustration {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1187,16 +1169,12 @@ footer {
     width: 100%;
     height: auto;
     object-fit: contain;
-    max-height: 250px;
 }
 
 .origin-text {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-left: 3.5rem;
-    position: relative;
-    margin-top: -2rem;
 }
 
 .origin-text h3 {
@@ -1207,17 +1185,9 @@ footer {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-left: -3.5rem;
 }
 
-.origin-text p {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: var(--text-secondary);
-    margin: 0;
-}
-
-.origin-text .number {
+.origin-text h3 .number {
     width: 2.5rem;
     height: 2.5rem;
     background-color: var(--primary-color);
@@ -1230,29 +1200,22 @@ footer {
     flex-shrink: 0;
 }
 
+.origin-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
 @media (max-width: 768px) {
     .origin-content {
         grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 0 1.5rem;
+        gap: 2rem;
+        padding: 0 1rem;
     }
 
     .origin-illustration {
         max-width: 300px;
         margin: 0 auto;
-        position: static;
-    }
-
-    .origin-text {
-        padding-left: 0;
-    }
-
-    .origin-text h3 {
-        margin-left: 0;
-    }
-
-    .project-origin-header p {
-        white-space: normal;
-        padding: 0 1rem;
     }
 } 
