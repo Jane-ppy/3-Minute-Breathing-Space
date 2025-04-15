@@ -626,14 +626,14 @@ footer {
 }
 
 .stats-container {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     gap: 3rem;
     margin: 3rem 0;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .stat-circle {
+    flex-shrink: 0;
     width: 200px;
     height: 200px;
     background-color: var(--primary-color);
@@ -642,7 +642,6 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: var(--text-light);
     padding: 2rem;
     text-align: center;
 }
@@ -655,9 +654,18 @@ footer {
 }
 
 .stat-label {
-    color: var(--text-light);
     font-size: 1.1rem;
     line-height: 1.4;
+    color: var(--text-light);
+}
+
+.stat-content {
+    flex-grow: 1;
+}
+
+.stat-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
 }
 
 .impact-grid {
