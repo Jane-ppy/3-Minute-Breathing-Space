@@ -651,15 +651,13 @@ footer {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    color: var(--text-light);
 }
 
-.stat-text {
-    line-height: 1.6;
-}
-
-.stat-text p {
-    margin-bottom: 1rem;
+.stat-label {
+    color: var(--text-light);
     font-size: 1.1rem;
+    line-height: 1.4;
 }
 
 .impact-grid {
@@ -667,18 +665,27 @@ footer {
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin: 3rem 0;
+}
+
+.impact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
     text-align: center;
 }
 
 .impact-item img {
     width: 64px;
     height: 64px;
-    margin-bottom: 1rem;
+    object-fit: contain;
 }
 
 .impact-item span {
     font-size: 1.1rem;
     color: var(--text-primary);
+    display: block;
 }
 
 .steps-container {
