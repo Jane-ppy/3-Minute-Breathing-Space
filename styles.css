@@ -595,7 +595,7 @@ footer {
 
 .brain-drain-container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
     align-items: center;
     margin: 3rem auto;
@@ -608,19 +608,14 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.brain-drain-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    object-fit: contain;
+    order: 2;
 }
 
 .brain-drain-content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    order: 1;
 }
 
 .brain-drain-content p {
@@ -1090,6 +1085,10 @@ footer {
 
     .brain-drain-image {
         order: -1;
+    }
+
+    .brain-drain-content {
+        order: 2;
     }
 
     .brain-drain-image img {
