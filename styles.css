@@ -575,88 +575,60 @@ footer {
     height: auto;
 }
 
-.brain-drain-section {
-    padding: 4rem 2rem;
-    background-color: var(--bg-light);
-}
-
 .brain-drain-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0;
 }
 
-.brain-drain-content {
+.brain-drain-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.brain-drain-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    margin: 3rem 0;
+    align-items: center;
+}
+
+.stat-circle {
+    width: 200px;
+    height: 200px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    margin-top: 2rem;
-}
-
-.cognitive-decline,
-.brain-drain-phenomenon,
-.mental-health {
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
     padding: 2rem;
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-sm);
+    text-align: center;
 }
 
-.brain-drain-phenomenon {
-    background-color: var(--bg-secondary);
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
-.text-content {
-    flex: 1;
+.stat-text {
+    line-height: 1.6;
 }
 
-.text-content h4 {
-    font-size: 1.5rem;
-    color: var(--text-primary);
+.stat-text p {
     margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.text-content p {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-}
-
-.text-content p:last-child {
-    margin-bottom: 0;
-}
-
-.phone-icon,
-.brain-icon,
-.mental-icon {
-    width: 80px;
-    height: auto;
-    object-fit: contain;
-}
-
-@media (max-width: 768px) {
-    .cognitive-decline,
-    .brain-drain-phenomenon,
-    .mental-health {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .phone-icon,
-    .brain-icon,
-    .mental-icon {
-        width: 60px;
-        margin-bottom: 1rem;
-    }
-
-    .text-content h4 {
-        font-size: 1.25rem;
-    }
+    font-size: 1.1rem;
 }
 
 .impact-grid {
@@ -1078,10 +1050,6 @@ footer {
     .brain-drain-container,
     .stats-container {
         grid-template-columns: 1fr;
-    }
-
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .impact-grid {
