@@ -604,11 +604,19 @@ footer {
 }
 
 .brain-drain-image {
-    width: 100%;
+    width: 90%;
+    max-width: 360px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     order: 2;
+}
+
+.brain-drain-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .brain-drain-content {
@@ -629,7 +637,7 @@ footer {
     display: flex;
     gap: 3rem;
     margin: 3rem 0;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .stat-image {
@@ -652,10 +660,15 @@ footer {
 }
 
 .stat-text p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.8;
     color: var(--text-secondary);
     font-size: 1.1rem;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.stat-text p:last-child {
+    margin-bottom: 0;
 }
 
 .impact-grid {
@@ -1011,12 +1024,12 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        gap: 2rem;
     }
 
     .stat-image {
         width: 150px;
         height: 150px;
-        margin-bottom: 2rem;
     }
 }
 
@@ -1183,8 +1196,8 @@ footer {
 }
 
 .origin-illustration {
-    width: 100%;
-    max-width: 400px;
+    width: 90%;
+    max-width: 360px;
     height: auto;
     display: flex;
     align-items: center;
