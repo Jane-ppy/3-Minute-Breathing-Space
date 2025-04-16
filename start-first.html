@@ -314,45 +314,30 @@
             const formData = new FormData(this);
             const screenTimeValue = document.getElementById('screen-time').value;
             
-            // 創建表單提交 URL
-            const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/formResponse';
+            // 創建 Google Forms 預填表單 URL
+            const baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/viewform';
+            const params = new URLSearchParams();
             
-            // 創建隱藏的表單
-            const hiddenForm = document.createElement('form');
-            hiddenForm.method = 'POST';
-            hiddenForm.action = formUrl;
-            hiddenForm.target = '_blank';
-
-            // 添加表單數據
-            const appendInput = (name, value) => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = name;
-                input.value = value;
-                hiddenForm.appendChild(input);
-            };
-
             // 添加所有問題的答案
-            appendInput('entry.1477524551', screenTimeValue + " 小時");
-            appendInput('entry.1065046570', formData.get('screenTime'));
-            appendInput('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
-            appendInput('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
-            appendInput('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
-            appendInput('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+            params.append('entry.1477524551', screenTimeValue + " 小時");
+            params.append('entry.1065046570', formData.get('screenTime'));
+            params.append('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
+            params.append('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
+            params.append('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
+            params.append('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
                 return input.value === 'other' ? formData.get('experienceOther') : input.value;
             }).join(', '));
-            appendInput('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
-            appendInput('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
-            appendInput('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
+            params.append('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
+            params.append('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
+            params.append('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
 
-            // 添加表單到文檔並提交
-            document.body.appendChild(hiddenForm);
-            hiddenForm.submit();
-            document.body.removeChild(hiddenForm);
+            // 打開預填表單
+            const formUrl = `${baseUrl}?${params.toString()}`;
+            window.open(formUrl, '_blank');
 
             // 顯示成功訊息並跳轉
             setTimeout(() => {
-                alert('感謝您的分享！');
+                alert('請在新開啟的頁面中確認並提交您的回答！');
                 window.location.href = 'thank-you.html';
             }, 1000);
         });
