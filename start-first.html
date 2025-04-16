@@ -9,32 +9,15 @@
 </head>
 <body>
     <header class="header">
-        <nav class="nav container">
-            <a href="index.html" class="nav-logo">
+        <nav class="nav">
+            <a href="index.html" class="logo">
                 <img src="assets/images/logo.svg" alt="Logo">
             </a>
-
-            <div class="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">首頁</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="record-meditation.html" class="nav-link">冥想紀錄</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="start-first.html" class="nav-link active">開始練習</a>
-                    </li>
-                </ul>
-
-                <div class="nav-close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
-            </div>
-
-            <div class="nav-toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="record-meditation.html">冥想紀錄</a></li>
+                <li><a href="start-first.html" class="active">開始練習</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -322,7 +305,6 @@
         </section>
     </main>
 
-    <script src="js/main.js"></script>
     <script>
         document.getElementById('reflectionForm').addEventListener('submit', function(e) {
             e.preventDefault();
