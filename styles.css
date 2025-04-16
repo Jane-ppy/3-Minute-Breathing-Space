@@ -34,54 +34,59 @@ body {
 }
 
 /* 導航欄 */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 4rem;
 }
 
 nav a {
     text-decoration: none;
     color: var(--text-primary);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 nav ul {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: var(--text-primary);
     font-size: 1rem;
     font-weight: 400;
-    transition: color 0.3s;
 }
 
-nav ul li a:hover {
+nav a:hover {
     color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
-    nav {
-        padding: 1rem;
+    .container {
+        padding: 0 1rem;
     }
     
     nav ul {
-        gap: 1rem;
+        gap: 1.5rem;
     }
 }
 
