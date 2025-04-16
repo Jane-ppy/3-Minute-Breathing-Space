@@ -42,19 +42,23 @@ header {
     background: white;
     z-index: 1000;
     box-shadow: var(--shadow-sm);
+    height: 64px; /* 固定高度 */
+    display: flex;
+    align-items: center; /* 垂直置中 */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4rem;
+    height: 100%;
 }
 
 nav a {
@@ -63,17 +67,31 @@ nav a {
     font-size: 1.25rem;
     font-weight: 500;
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 nav ul {
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    height: 100%;
+    align-items: center;
+}
+
+nav ul li {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
     font-size: 1rem;
     font-weight: 400;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 nav a:hover {
@@ -87,6 +105,14 @@ nav a:hover {
     
     nav ul {
         gap: 1.5rem;
+    }
+    
+    header {
+        height: 56px; /* 手機版稍微降低高度 */
+    }
+    
+    main {
+        margin-top: 56px; /* 配合手機版導航欄高度 */
     }
 }
 
@@ -169,7 +195,7 @@ nav a:hover {
 
 /* 主頁面 */
 main {
-    margin-top: 80px;
+    margin-top: 64px; /* 配合導航欄高度 */
 }
 
 section {
