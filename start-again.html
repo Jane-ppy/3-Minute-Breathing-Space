@@ -30,35 +30,45 @@
 
     <main class="meditation-container">
         <div class="meditation-header">
-            <h2>歡迎回來</h2>
-            <p>讓我們繼續這段平靜的旅程</p>
+            <h2>歡迎回到三分鐘呼吸空間</h2>
+            <p>持續練習，讓每一次呼吸都更貼近當下</p>
         </div>
 
-        <div class="audio-player">
+        <!-- 冥想音頻部分 -->
+        <div class="meditation-audio">
             <h3>三分鐘街頭冥想</h3>
-            <audio controls>
-                <source src="assets/images/三分鐘呼吸空間.mp3" type="audio/mpeg">
-                您的瀏覽器不支援音訊播放
-            </audio>
+            <div class="audio-player">
+                <audio controls>
+                    <source src="assets/images/street-meditation.mp3" type="audio/mpeg">
+                    您的瀏覽器不支援音訊播放
+                </audio>
+            </div>
         </div>
 
+        <!-- 推薦冥想資源部分 -->
         <div class="youtube-section">
-            <h3>推薦的冥想資源</h3>
-            <p>若你已完成冥想，<a href="record-meditation.html">請點此記錄你的冥想體驗</a></p>
+            <h3>你可以嘗試其他的冥想聲音：</h3>
             <div class="video-grid">
                 <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h4>正念冥想入門</h4>
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="冥想選項1" allowfullscreen></iframe>
+                    <h4>5分鐘正念冥想</h4>
                 </div>
                 <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h4>呼吸練習指南</h4>
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="冥想選項2" allowfullscreen></iframe>
+                    <h4>10分鐘呼吸練習</h4>
                 </div>
                 <div class="video-card">
-                    <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h4>深度放鬆冥想</h4>
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="冥想選項3" allowfullscreen></iframe>
+                    <h4>身體掃描冥想</h4>
                 </div>
             </div>
+        </div>
+
+        <!-- 記錄冥想體驗部分 -->
+        <div class="action-buttons">
+            <p class="text-center">
+                如果你已完成今天的冥想，<a href="log-meditation.html" class="text-link">點此記錄你的冥想體驗</a>。
+            </p>
         </div>
     </main>
 

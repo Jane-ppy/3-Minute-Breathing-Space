@@ -1441,7 +1441,7 @@ footer {
 
 /* 冥想記錄頁面樣式 */
 .meditation-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 100px auto 50px;
     padding: 0 2rem;
 }
@@ -1455,6 +1455,7 @@ footer {
     font-size: 2.5rem;
     color: var(--text-dark);
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .meditation-header p {
@@ -1683,27 +1684,14 @@ footer {
 }
 
 .youtube-section {
-    margin-top: 3rem;
+    margin: 3rem 0;
 }
 
 .youtube-section h3 {
     color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
-.youtube-section p {
-    color: var(--text-secondary);
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-}
-
-.youtube-section a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.youtube-section a:hover {
-    color: var(--primary-dark);
+    text-align: center;
 }
 
 .video-grid {
@@ -1735,6 +1723,8 @@ footer {
     padding: 1rem;
     color: var(--text-dark);
     margin: 0;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 .action-buttons {
@@ -1742,13 +1732,44 @@ footer {
     margin-top: 3rem;
 }
 
+.text-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
-    .mood-check, .post-meditation {
+    .meditation-container {
+        margin-top: 80px;
+        padding: 0 1rem;
+    }
+
+    .meditation-header h2 {
+        font-size: 2rem;
+    }
+
+    .meditation-audio {
         padding: 1.5rem;
     }
 
     .video-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .meditation-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .meditation-audio {
+        padding: 1.2rem;
     }
 }
 
@@ -1861,6 +1882,8 @@ footer {
     box-shadow: var(--shadow-sm);
     margin: 2rem 0;
     text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
 }
 
 .meditation-audio h3 {
