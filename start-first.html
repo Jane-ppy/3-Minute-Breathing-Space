@@ -3,43 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>開始冥想 | 三分鐘呼吸空間</title>
+    <title>三分鐘呼吸空間 - 反思問卷</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <a href="index.html" class="logo">
-                <h1>三分鐘呼吸空間</h1>
-            </a>
-            <nav class="nav">
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul>
-                    <li><a href="index.html#project-origin">專題起源</a></li>
-                    <li><a href="index.html#mindfulness-benefits">冥想好處</a></li>
-                    <li><a href="index.html#resources">冥想資源</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main class="meditation-container">
-        <div class="meditation-header">
-            <h2>歡迎來到三分鐘呼吸空間</h2>
-            <p>讓我們開始這段平靜的旅程</p>
-        </div>
-
-        <!-- 預冥想反思部分 -->
-        <div class="reflection-section pre-meditation">
-            <h3>在冥想前，請花些時間反思以下問題：</h3>
+    <main>
+        <div class="reflection-section">
+            <h3>歡迎來到三分鐘呼吸空間</h3>
+            <p class="subtitle">讓我們一起開始這段平靜的旅程</p>
             
             <div class="question-group">
                 <div class="question">
+                    <h4>在冥想前，請花些時間反思以下問題：</h4>
                     <h4>您願意查看今天的手機使用時間嗎？這個數字比您預期的多還是少？</h4>
                     <div class="options">
                         <label class="option">
@@ -58,9 +34,12 @@
                             <input type="radio" name="q1" value="我沒查看">
                             <span>我沒查看</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q1" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -77,16 +56,19 @@
                             <span>小睡</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="q2" value="看劇 / 聽音樂">
-                            <span>看劇 / 聽音樂</span>
+                            <input type="radio" name="q2" value="看劇/聽音樂">
+                            <span>看劇/聽音樂</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="q2" value="散步 / 運動">
-                            <span>散步 / 運動</span>
+                            <input type="radio" name="q2" value="散步/運動">
+                            <span>散步/運動</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="q2" value="other">
+                            <span>其他</span>
                         </label>
                         <div class="other-option">
-                            <input type="radio" name="q2" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -95,8 +77,8 @@
                     <h4>您平常在街上或搭車時會怎麼打發時間？</h4>
                     <div class="options">
                         <label class="option">
-                            <input type="radio" name="q3" value="看手機 / 聽音樂">
-                            <span>看手機 / 聽音樂</span>
+                            <input type="radio" name="q3" value="看手機/聽音樂">
+                            <span>看手機/聽音樂</span>
                         </label>
                         <label class="option">
                             <input type="radio" name="q3" value="發呆">
@@ -110,9 +92,12 @@
                             <input type="radio" name="q3" value="想事情">
                             <span>想事情</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q3" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -136,42 +121,40 @@
                             <input type="radio" name="q4" value="完全不會">
                             <span>完全不會</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q4" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- 冥想音頻部分 -->
-        <div class="meditation-audio">
-            <h3>三分鐘靜觀冥想</h3>
-            <p class="audio-guide">請點擊下方音頻，開始三分鐘冥想體驗</p>
-            <div class="audio-player">
-                <audio controls>
-                    <source src="assets/images/三分鐘呼吸空間.mp3" type="audio/mpeg">
-                    您的瀏覽器不支援音訊播放
-                </audio>
+            <div class="meditation-audio">
+                <h3>三分鐘街頭冥想</h3>
+                <p class="audio-guide">請找一個舒適的位置，開始今天的街頭冥想練習</p>
+                <div class="audio-player">
+                    <audio controls>
+                        <source src="assets/audio/street-meditation.mp3" type="audio/mpeg">
+                        您的瀏覽器不支援音訊播放
+                    </audio>
+                </div>
             </div>
-        </div>
 
-        <!-- 冥想後反思部分 -->
-        <div class="reflection-section post-meditation">
-            <h3>冥想後，請花幾分鐘回顧您的感受與觀察：</h3>
-            
             <div class="question-group">
                 <div class="question">
+                    <h4>冥想後，請花些分鐘回顧您的感受與觀察：</h4>
                     <h4>剛才的三分鐘體驗比您想像中如何？請選出三個形容詞：</h4>
-                    <div class="options multiple-choice">
+                    <div class="options">
                         <label class="option">
                             <input type="checkbox" name="q5" value="平靜">
                             <span>平靜</span>
                         </label>
                         <label class="option">
-                            <input type="checkbox" name="q5" value="難熬">
-                            <span>難熬</span>
+                            <input type="checkbox" name="q5" value="雜亂">
+                            <span>雜亂</span>
                         </label>
                         <label class="option">
                             <input type="checkbox" name="q5" value="安心">
@@ -189,9 +172,12 @@
                             <input type="checkbox" name="q5" value="焦躁">
                             <span>焦躁</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="checkbox" name="q5" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -200,16 +186,16 @@
                     <h4>您的思緒有飄走嗎？如果有，是關於什麼？</h4>
                     <div class="options">
                         <label class="option">
-                            <input type="radio" name="q6" value="工作 / 壓力">
-                            <span>工作 / 壓力</span>
+                            <input type="radio" name="q6" value="工作/壓力">
+                            <span>工作/壓力</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="q6" value="家人 / 關係">
-                            <span>家人 / 關係</span>
+                            <input type="radio" name="q6" value="家人/關係">
+                            <span>家人/關係</span>
                         </label>
                         <label class="option">
-                            <input type="radio" name="q6" value="健康 / 身體">
-                            <span>健康 / 身體</span>
+                            <input type="radio" name="q6" value="健康/身體">
+                            <span>健康/身體</span>
                         </label>
                         <label class="option">
                             <input type="radio" name="q6" value="今天要做的事">
@@ -219,9 +205,12 @@
                             <input type="radio" name="q6" value="沒有飄走">
                             <span>沒有飄走</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q6" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -245,9 +234,12 @@
                             <input type="radio" name="q7" value="感覺一樣">
                             <span>感覺一樣</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q7" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
@@ -275,25 +267,23 @@
                             <input type="radio" name="q8" value="可以！我會試試看">
                             <span>可以！我會試試看</span>
                         </label>
-                        <div class="other-option">
+                        <label class="option">
                             <input type="radio" name="q8" value="other">
-                            <input type="text" placeholder="其他，請填寫">
+                            <span>其他</span>
+                        </label>
+                        <div class="other-option">
+                            <input type="text" placeholder="請填寫">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="action-buttons">
-            <button class="btn btn-primary" id="submitReflection">完成反思</button>
+            <div class="action-buttons">
+                <button id="submitReflection" class="btn-primary">完成反思</button>
+            </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 三分鐘呼吸空間 | CCI4900 畢業專題</p>
-    </footer>
-
-    <script src="script.js"></script>
     <script>
         document.getElementById('submitReflection').addEventListener('click', async (e) => {
             e.preventDefault();
