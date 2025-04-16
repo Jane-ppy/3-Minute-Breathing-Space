@@ -605,7 +605,8 @@ footer {
 
 .brain-drain-image {
     width: 82%;
-    max-width: 295px;
+    max-width: 732px;
+    height: 902px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -614,8 +615,8 @@ footer {
 }
 
 .brain-drain-image img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -643,15 +644,15 @@ footer {
 
 .stat-image {
     flex-shrink: 0;
-    width: 260px;
-    height: 260px;
+    width: auto;
+    height: 902px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .stat-image img {
-    width: 100%;
+    width: auto;
     height: 100%;
     object-fit: contain;
 }
@@ -1333,5 +1334,35 @@ footer {
         font-size: 1rem;
         padding: 0 1rem;
         max-width: 100%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .brain-drain-image {
+        height: 700px;
+    }
+    
+    .stat-image {
+        height: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .brain-drain-image {
+        height: 500px;
+    }
+    
+    .stat-image {
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brain-drain-image {
+        height: 400px;
+    }
+    
+    .stat-image {
+        height: 400px;
     }
 } 
