@@ -367,8 +367,8 @@
             };
 
             try {
-                // 替換為您的 Apps Script Web App URL
-                const SCRIPT_URL = 'https://script.google.com/macros/s/NEW_SCRIPT_ID/exec';
+                // Google Apps Script Web App URL
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec';
                 
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
@@ -384,7 +384,7 @@
                     alert('感謝您的反思！');
                     window.location.href = 'thank-you.html';
                 } else {
-                    throw new Error('提交失敗');
+                    throw new Error(result.message || '提交失敗');
                 }
             } catch (error) {
                 console.error('提交表單時發生錯誤：', error);
