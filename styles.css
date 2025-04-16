@@ -606,7 +606,7 @@ footer {
 .brain-drain-image {
     width: 82%;
     max-width: 732px;
-    height: 902px;
+    height: 400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -645,7 +645,7 @@ footer {
 .stat-image {
     flex-shrink: 0;
     width: auto;
-    height: 902px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1244,7 +1244,7 @@ footer {
 .origin-illustration {
     width: 82%;
     max-width: 295px;
-    height: auto;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1252,8 +1252,8 @@ footer {
 }
 
 .origin-illustration img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
     object-fit: contain;
 }
 
