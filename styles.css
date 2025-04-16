@@ -1780,96 +1780,121 @@ footer {
     padding: 2.5rem;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
-    margin-top: 3rem;
+    margin: 2rem 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .reflection-section h3 {
     color: var(--text-dark);
     font-size: 1.8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
     font-weight: 500;
+    line-height: 1.4;
 }
 
 .question-group {
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
 }
 
-.question-group h4 {
+.question {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.question h4 {
     color: var(--text-dark);
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 500;
+    line-height: 1.6;
 }
 
 .options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
 }
 
 .option {
     display: flex;
     align-items: center;
-    padding: 0.8rem 1.2rem;
-    background: white;
+    padding: 1rem 1.2rem;
+    background: var(--bg-light);
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--secondary-color);
 }
 
 .option:hover {
-    background: var(--primary-light);
+    background: var(--secondary-color);
     border-color: var(--primary-color);
 }
 
-.option input[type="radio"] {
-    margin-right: 0.8rem;
+.option input[type="radio"],
+.option input[type="checkbox"] {
+    margin-right: 1rem;
+    width: 18px;
+    height: 18px;
     accent-color: var(--primary-color);
 }
 
 .option span {
     color: var(--text-dark);
+    font-size: 1.1rem;
 }
 
-textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    resize: vertical;
-    font-family: inherit;
+.other-option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.other-option input[type="text"] {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 6px;
     font-size: 1rem;
     color: var(--text-dark);
-    background: white;
 }
 
-textarea:focus {
+.other-option input[type="text"]:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px var(--primary-light);
+    box-shadow: 0 0 0 2px rgba(230, 126, 90, 0.1);
 }
 
 .action-buttons {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
-.btn {
+.btn-primary {
     background: var(--primary-color);
     color: white;
-    padding: 0.8rem 2rem;
+    padding: 1rem 3rem;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
 }
 
-.btn:hover {
+.btn-primary:hover {
     background: var(--primary-dark);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* 冥想音頻部分 */
@@ -1878,34 +1903,25 @@ textarea:focus {
     padding: 2.5rem;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
-    margin: 2rem 0;
+    margin: 3rem auto;
     text-align: center;
     max-width: 600px;
-    margin: 0 auto 3rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.meditation-audio:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
 }
 
 .meditation-audio h3 {
     color: var(--text-dark);
     font-size: 1.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 500;
 }
 
 .audio-guide {
     color: var(--text-secondary);
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
 .audio-player {
-    max-width: 400px;
-    margin: 0 auto;
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
@@ -1914,45 +1930,41 @@ textarea:focus {
 
 .audio-player audio {
     width: 100%;
-    height: 40px;
-}
-
-.audio-player audio::-webkit-media-controls-panel {
-    background-color: white;
-}
-
-.audio-player audio::-webkit-media-controls-play-button {
-    background-color: var(--primary-color);
-    border-radius: 50%;
-}
-
-.audio-player audio::-webkit-media-controls-current-time-display,
-.audio-player audio::-webkit-media-controls-time-remaining-display {
-    color: var(--text-dark);
 }
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-    .meditation-audio {
-        padding: 2rem;
-    }
-
-    .options {
-        grid-template-columns: 1fr;
-    }
-
     .reflection-section {
-        padding: 2rem;
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+
+    .question {
+        padding: 1.5rem;
+    }
+
+    .option {
+        padding: 0.8rem 1rem;
+    }
+
+    .option span {
+        font-size: 1rem;
+    }
+
+    .meditation-audio {
+        margin: 1.5rem;
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .meditation-audio {
-        padding: 1.5rem;
-    }
-
+    .reflection-section h3,
     .meditation-audio h3 {
         font-size: 1.5rem;
+    }
+
+    .question h4 {
+        font-size: 1.1rem;
     }
 
     .audio-guide {
