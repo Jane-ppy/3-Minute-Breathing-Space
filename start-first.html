@@ -328,7 +328,7 @@
 
             // 創建表單
             const form = document.createElement('form');
-            form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/formResponse';
+            form.action = 'https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec';
             form.method = 'POST';
             form.target = 'hidden_iframe';
 
@@ -342,17 +342,17 @@
             };
 
             // 添加所有問題的答案
-            createInput('entry.1477524551', screenTimeValue);
-            createInput('entry.1065046570', formData.get('screenTime'));
-            createInput('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
-            createInput('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
-            createInput('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
-            createInput('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+            createInput('screenTime', screenTimeValue);
+            createInput('screenTimeCompare', formData.get('screenTime'));
+            createInput('restActivity', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
+            createInput('commute', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
+            createInput('socialPhone', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
+            createInput('experience', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
                 return input.value === 'other' ? formData.get('experienceOther') : input.value;
             }).join(', '));
-            createInput('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
-            createInput('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
-            createInput('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
+            createInput('thoughts', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
+            createInput('comparison', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
+            createInput('continuation', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
 
             // 添加表單到文檔並提交
             document.body.appendChild(form);
