@@ -1776,16 +1776,15 @@ footer {
 
 /* 反思問卷樣式 */
 .reflection-section {
-    background: var(--bg-light);
-    padding: 4rem 2rem;
-    margin: 2rem auto;
+    padding: 6rem 2rem 4rem;
+    margin: 0 auto;
     max-width: 1200px;
 }
 
-.reflection-section h3 {
+.reflection-section h1 {
     color: var(--text-primary);
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: center;
     font-weight: 300;
 }
@@ -1796,38 +1795,40 @@ footer {
     font-size: 1.2rem;
     margin-bottom: 4rem;
     line-height: 1.8;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.section-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
 }
 
 .question-group {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    max-width: 800px;
-    margin: 0 auto;
+    gap: 2.5rem;
+    margin-bottom: 4rem;
 }
 
 .question {
     background: var(--bg-light);
     padding: 2rem;
-    border-radius: 16px;
+    border-radius: 12px;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .question:hover {
     box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
 }
 
 .question h4 {
     color: var(--text-primary);
     font-size: 1.2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.6;
 }
 
 .options {
@@ -1840,25 +1841,23 @@ footer {
     display: flex;
     align-items: center;
     padding: 1rem 1.5rem;
-    background: var(--secondary-color);
-    border-radius: 12px;
+    background: white;
+    border-radius: 8px;
     cursor: pointer;
     transition: var(--transition);
-    border: 2px solid transparent;
+    border: 1px solid var(--border-color);
 }
 
 .option:hover {
     background: var(--bg-light);
     border-color: var(--primary-color);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
 }
 
 .option input[type="radio"],
 .option input[type="checkbox"] {
-    margin-right: 1.2rem;
-    width: 20px;
-    height: 20px;
+    margin-right: 1rem;
+    width: 18px;
+    height: 18px;
     accent-color: var(--primary-color);
 }
 
@@ -1868,8 +1867,8 @@ footer {
 }
 
 .other-option {
-    margin-top: 1rem;
-    margin-left: 3.2rem;
+    margin-top: 0.5rem;
+    margin-left: 2.5rem;
     display: none;
 }
 
@@ -1880,54 +1879,51 @@ footer {
 
 .other-option input[type="text"] {
     width: 100%;
-    padding: 1rem 1.2rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: 12px;
-    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
     color: var(--text-primary);
     transition: var(--transition);
-    background: var(--bg-light);
 }
 
 .other-option input[type="text"]:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(230, 126, 90, 0.1);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
 }
 
 /* 音頻播放器樣式 */
 .meditation-audio {
-    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-    padding: 3rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    padding: 3rem 2rem;
     border-radius: 16px;
     margin: 4rem auto;
     text-align: center;
     color: white;
     max-width: 800px;
-    box-shadow: var(--shadow-md);
 }
 
 .meditation-audio h3 {
     color: white;
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-weight: 300;
 }
 
 .audio-guide {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
 }
 
 .audio-player {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 12px;
     max-width: 600px;
     margin: 0 auto;
-    box-shadow: var(--shadow-sm);
 }
 
 .audio-player audio {
@@ -1942,10 +1938,10 @@ footer {
 .btn-primary {
     background: var(--primary-color);
     color: white;
-    padding: 1.2rem 4rem;
+    padding: 1rem 3rem;
     border: none;
-    border-radius: 50px;
-    font-size: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
@@ -1960,31 +1956,30 @@ footer {
 /* 響應式設計 */
 @media (max-width: 992px) {
     .reflection-section {
-        padding: 3rem 2rem;
+        padding: 5rem 2rem 3rem;
     }
 
-    .reflection-section h3 {
+    .reflection-section h1 {
         font-size: 2.2rem;
     }
 
-    .meditation-audio {
-        margin: 3rem 2rem;
+    .section-title {
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 768px) {
     .reflection-section {
-        padding: 2.5rem 1.5rem;
-        margin: 1.5rem;
+        padding: 4rem 1.5rem 2rem;
     }
 
-    .reflection-section h3 {
+    .reflection-section h1 {
         font-size: 2rem;
     }
 
-    .reflection-section .subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
     }
 
     .question {
@@ -1993,44 +1988,33 @@ footer {
 
     .question h4 {
         font-size: 1.1rem;
-        margin-bottom: 1.5rem;
     }
 
     .option {
         padding: 0.8rem 1.2rem;
     }
 
-    .option span {
-        font-size: 1rem;
-    }
-
     .meditation-audio {
         padding: 2rem;
-        margin: 2rem 1.5rem;
+        margin: 3rem auto;
     }
 
     .meditation-audio h3 {
         font-size: 1.8rem;
     }
-
-    .audio-player {
-        padding: 1.5rem;
-    }
-
-    .btn-primary {
-        padding: 1rem 3rem;
-        font-size: 1.1rem;
-    }
 }
 
 @media (max-width: 480px) {
     .reflection-section {
-        padding: 2rem 1rem;
-        margin: 1rem;
+        padding: 3.5rem 1rem 2rem;
     }
 
-    .reflection-section h3 {
+    .reflection-section h1 {
         font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
     }
 
     .question {
@@ -2041,9 +2025,13 @@ footer {
         padding: 0.8rem 1rem;
     }
 
+    .option span {
+        font-size: 1rem;
+    }
+
     .meditation-audio {
         padding: 1.5rem;
-        margin: 1.5rem 1rem;
+        margin: 2rem auto;
     }
 
     .meditation-audio h3 {
@@ -2052,7 +2040,7 @@ footer {
 
     .btn-primary {
         width: 100%;
-        padding: 1rem;
+        padding: 0.8rem;
     }
 }
 

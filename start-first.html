@@ -5,342 +5,329 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>三分鐘呼吸空間 - 反思問卷</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <main>
-        <div class="reflection-section">
-            <h3>歡迎來到三分鐘呼吸空間</h3>
+    <header class="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/images/logo.svg" alt="Logo">
+            </a>
+
+            <div class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="record-meditation.html" class="nav-link">冥想紀錄</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="start-first.html" class="nav-link active">開始練習</a>
+                    </li>
+                </ul>
+
+                <div class="nav-close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="reflection-section">
+            <h1>歡迎來到三分鐘呼吸空間</h1>
             <p class="subtitle">讓我們一起開始這段平靜的旅程</p>
-            
-            <div class="question-group">
-                <div class="question">
-                    <h4>在冥想前，請花些時間反思以下問題：</h4>
-                    <h4>您願意查看今天的手機使用時間嗎？這個數字比您預期的多還是少？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q1" value="比預期多">
-                            <span>比預期多</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="比預期少">
-                            <span>比預期少</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="剛好差不多">
-                            <span>剛好差不多</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="我沒查看">
-                            <span>我沒查看</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q1" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
+
+            <form id="reflectionForm" class="reflection-form">
+                <div class="pre-meditation">
+                    <p class="section-title">在冥想前，請花些時間反思以下問題：</p>
+                    
+                    <div class="question-group">
+                        <div class="question">
+                            <h4>您願意查看今天的手機使用時間嗎？這個數字比您預期的多還是少？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="screenTime" value="比預期多">
+                                    <span>比預期多</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="screenTime" value="比預期少">
+                                    <span>比預期少</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="screenTime" value="剛好差不多">
+                                    <span>剛好差不多</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="screenTime" value="我沒查看">
+                                    <span>我沒查看</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="screenTime" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="screenTimeOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>日常休息時，您通常會做什麼？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="restActivity" value="滑手機">
+                                    <span>滑手機</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="restActivity" value="小睡">
+                                    <span>小睡</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="restActivity" value="看劇/聽音樂">
+                                    <span>看劇/聽音樂</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="restActivity" value="散步/運動">
+                                    <span>散步/運動</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="restActivity" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="restActivityOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>您平常在街上或搭車時會怎麼打發時間？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="commute" value="看手機/聽音樂">
+                                    <span>看手機/聽音樂</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="commute" value="發呆">
+                                    <span>發呆</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="commute" value="觀察路人">
+                                    <span>觀察路人</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="commute" value="想事情">
+                                    <span>想事情</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="commute" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="commuteOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>與親友聚會時，您會不自覺查看手機嗎？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="socialPhone" value="會，而且蠻頻繁的">
+                                    <span>會，而且蠻頻繁的</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="socialPhone" value="偶爾會">
+                                    <span>偶爾會</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="socialPhone" value="幾乎不會">
+                                    <span>幾乎不會</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="socialPhone" value="完全不會">
+                                    <span>完全不會</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="socialPhone" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="socialPhoneOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="question">
-                    <h4>日常休息時，您通常會做什麼？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q2" value="滑手機">
-                            <span>滑手機</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="小睡">
-                            <span>小睡</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="看劇/聽音樂">
-                            <span>看劇/聽音樂</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="散步/運動">
-                            <span>散步/運動</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q2" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
+                <div class="meditation-audio">
+                    <h3>三分鐘街頭冥想</h3>
+                    <p class="audio-guide">請找一個安靜的地方，開始今天的街頭冥想練習</p>
+                    <div class="audio-player">
+                        <audio controls>
+                            <source src="assets/audio/street-meditation.mp3" type="audio/mpeg">
+                            您的瀏覽器不支援音訊播放
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="post-meditation">
+                    <p class="section-title">冥想後，請花些分鐘回顧您的感受與觀察：</p>
+                    
+                    <div class="question-group">
+                        <div class="question">
+                            <h4>剛才的三分鐘體驗比您想像中如何？請選出三個形容詞：</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="平靜">
+                                    <span>平靜</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="雜亂">
+                                    <span>雜亂</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="安心">
+                                    <span>安心</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="分心">
+                                    <span>分心</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="專注">
+                                    <span>專注</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="焦慮">
+                                    <span>焦慮</span>
+                                </label>
+                                <label class="option">
+                                    <input type="checkbox" name="experience" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="experienceOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>您的思緒有飄走嗎？如果有，是關於什麼？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="工作/壓力">
+                                    <span>工作/壓力</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="家人/關係">
+                                    <span>家人/關係</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="健康/身體">
+                                    <span>健康/身體</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="今天要做的事">
+                                    <span>今天要做的事</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="沒有飄走">
+                                    <span>沒有飄走</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="thoughts" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="thoughtsOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>這三分鐘和您平常休息的方式相比，有什麼不同？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="comparison" value="更專注">
+                                    <span>更專注</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="comparison" value="更平靜">
+                                    <span>更平靜</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="comparison" value="不太習慣">
+                                    <span>不太習慣</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="comparison" value="感覺一樣">
+                                    <span>感覺一樣</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="comparison" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="comparisonOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>您覺得自己能每天持續練習三分鐘正念嗎？有什麼阻礙？</h4>
+                            <div class="options">
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="沒時間">
+                                    <span>沒時間</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="容易忘記">
+                                    <span>容易忘記</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="環境太吵">
+                                    <span>環境太吵</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="缺乏動力">
+                                    <span>缺乏動力</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="可以！我會試試看">
+                                    <span>可以！我會試試看</span>
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="continuation" value="other">
+                                    <span>其他</span>
+                                    <div class="other-option">
+                                        <input type="text" name="continuationOther" placeholder="請填寫">
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="question">
-                    <h4>您平常在街上或搭車時會怎麼打發時間？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q3" value="看手機/聽音樂">
-                            <span>看手機/聽音樂</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="發呆">
-                            <span>發呆</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="觀察路人">
-                            <span>觀察路人</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="想事情">
-                            <span>想事情</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q3" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
+                <div class="action-buttons">
+                    <button type="submit" class="btn-primary">完成反思</button>
                 </div>
-
-                <div class="question">
-                    <h4>與親友聚會時，您會不自覺查看手機嗎？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q4" value="會，而且蠻頻繁的">
-                            <span>會，而且蠻頻繁的</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="偶爾會">
-                            <span>偶爾會</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="幾乎不會">
-                            <span>幾乎不會</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="完全不會">
-                            <span>完全不會</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q4" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="meditation-audio">
-                <h3>三分鐘街頭冥想</h3>
-                <p class="audio-guide">請找一個舒適的位置，開始今天的街頭冥想練習</p>
-                <div class="audio-player">
-                    <audio controls>
-                        <source src="assets/audio/street-meditation.mp3" type="audio/mpeg">
-                        您的瀏覽器不支援音訊播放
-                    </audio>
-                </div>
-            </div>
-
-            <div class="question-group">
-                <div class="question">
-                    <h4>冥想後，請花些分鐘回顧您的感受與觀察：</h4>
-                    <h4>剛才的三分鐘體驗比您想像中如何？請選出三個形容詞：</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="平靜">
-                            <span>平靜</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="雜亂">
-                            <span>雜亂</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="安心">
-                            <span>安心</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="分心">
-                            <span>分心</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="專注">
-                            <span>專注</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="焦躁">
-                            <span>焦躁</span>
-                        </label>
-                        <label class="option">
-                            <input type="checkbox" name="q5" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h4>您的思緒有飄走嗎？如果有，是關於什麼？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q6" value="工作/壓力">
-                            <span>工作/壓力</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6" value="家人/關係">
-                            <span>家人/關係</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6" value="健康/身體">
-                            <span>健康/身體</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6" value="今天要做的事">
-                            <span>今天要做的事</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6" value="沒有飄走">
-                            <span>沒有飄走</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q6" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h4>這三分鐘和您平常休息的方式相比，有什麼不同？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q7" value="更專注">
-                            <span>更專注</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7" value="更平靜">
-                            <span>更平靜</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7" value="不太習慣">
-                            <span>不太習慣</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7" value="感覺一樣">
-                            <span>感覺一樣</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q7" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="question">
-                    <h4>您覺得自己能每天持續練習三分鐘正念嗎？有什麼阻礙？</h4>
-                    <div class="options">
-                        <label class="option">
-                            <input type="radio" name="q8" value="沒時間">
-                            <span>沒時間</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8" value="容易忘記">
-                            <span>容易忘記</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8" value="環境太吵">
-                            <span>環境太吵</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8" value="缺乏動力">
-                            <span>缺乏動力</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8" value="可以！我會試試看">
-                            <span>可以！我會試試看</span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="q8" value="other">
-                            <span>其他</span>
-                        </label>
-                        <div class="other-option">
-                            <input type="text" placeholder="請填寫">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="action-buttons">
-                <button id="submitReflection" class="btn-primary">完成反思</button>
-            </div>
-        </div>
+            </form>
+        </section>
     </main>
 
+    <script src="js/main.js"></script>
     <script>
-        document.getElementById('submitReflection').addEventListener('click', async (e) => {
+        document.getElementById('reflectionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // 收集所有表單數據
-            const formData = {};
-            
-            // 收集單選按鈕
-            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
-                const questionId = radio.name;
-                const value = radio.value === 'other' 
-                    ? radio.parentElement.nextElementSibling.querySelector('input[type="text"]').value 
-                    : radio.value;
-                formData[questionId] = value;
-            });
-            
-            // 收集多選框
-            const q5Values = [];
-            document.querySelectorAll('input[name="q5"]:checked').forEach(checkbox => {
-                const value = checkbox.value === 'other'
-                    ? checkbox.parentElement.nextElementSibling.querySelector('input[type="text"]').value
-                    : checkbox.value;
-                q5Values.push(value);
-            });
-            if (q5Values.length > 0) {
-                formData['q5'] = q5Values.join(', ');
-            }
-            
-            // 基本驗證
-            if (Object.keys(formData).length === 0) {
-                alert('請至少回答一個問題');
-                return;
-            }
-            
-            try {
-                console.log('準備提交數據:', formData);
-                
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                console.log('提交響應:', response);
-                
-                // 由於使用了 no-cors 模式，我們無法直接讀取響應
-                // 但我們可以假設如果沒有拋出錯誤，就表示提交成功
-                alert('感謝您的分享！');
-                window.location.href = 'thank-you.html';
-                
-            } catch (error) {
-                console.error('提交錯誤:', error);
-                alert('提交失敗，請稍後再試');
-            }
+            alert('感謝您的分享！');
+            window.location.href = 'thank-you.html';
         });
     </script>
 </body>
