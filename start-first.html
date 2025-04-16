@@ -312,41 +312,29 @@
             
             // 收集表單數據
             const formData = new FormData(this);
-            const data = {};
-            
-            // 處理滑桿值
-            data.screenTimeValue = document.getElementById('screen-time').value;
-            
-            // 處理單選題
-            formData.forEach((value, key) => {
-                // 如果是 "other" 選項，檢查對應的文字輸入
-                if (value === 'other') {
-                    const otherValue = formData.get(key + 'Other');
-                    data[key] = otherValue || '其他';
-                } else {
-                    data[key] = value;
-                }
-            });
-
-            // 處理多選題（experience）
-            const experienceChecked = document.querySelectorAll('input[name="experience"]:checked');
-            data.experience = Array.from(experienceChecked).map(input => {
-                if (input.value === 'other') {
-                    return formData.get('experienceOther') || '其他';
-                }
-                return input.value;
-            }).join(', ');
+            const data = {
+                q1: document.getElementById('screen-time').value,
+                q2: formData.get('screenTime'),
+                q3: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
+                q4: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
+                q5: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+                    return input.value === 'other' ? formData.get('experienceOther') : input.value;
+                }).join(', '),
+                q6: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
+                q7: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
+                q8: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
+            };
 
             // 發送到 Google Forms
             fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
                 method: 'POST',
-                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             })
             .then(response => {
+                console.log('Response:', response);
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
             })
