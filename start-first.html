@@ -298,24 +298,47 @@
         document.getElementById('submitReflection').addEventListener('click', async (e) => {
             e.preventDefault();
             
-            const formData = new FormData(document.getElementById('reflection-form'));
-            const data = {
-                attention: formData.get('attention') || '',
-                mood: formData.get('mood') || '',
-                experience: formData.get('experience') || '',
-                thoughts: formData.get('thoughts') || ''
-            };
-
+            // 收集所有表單數據
+            const formData = {};
+            
+            // 收集單選按鈕
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                const questionId = radio.name;
+                const value = radio.value === 'other' 
+                    ? radio.parentElement.nextElementSibling.querySelector('input[type="text"]').value 
+                    : radio.value;
+                formData[questionId] = value;
+            });
+            
+            // 收集多選框
+            const q5Values = [];
+            document.querySelectorAll('input[name="q5"]:checked').forEach(checkbox => {
+                const value = checkbox.value === 'other'
+                    ? checkbox.parentElement.nextElementSibling.querySelector('input[type="text"]').value
+                    : checkbox.value;
+                q5Values.push(value);
+            });
+            if (q5Values.length > 0) {
+                formData['q5'] = q5Values.join(', ');
+            }
+            
+            // 基本驗證
+            if (Object.keys(formData).length === 0) {
+                alert('請至少回答一個問題');
+                return;
+            }
+            
             try {
                 const response = await fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(data)
+                    body: JSON.stringify(formData)
                 });
 
                 if (response.ok) {
+                    alert('感謝您的分享！');
                     window.location.href = 'thank-you.html';
                 } else {
                     alert('提交失敗，請稍後再試');
