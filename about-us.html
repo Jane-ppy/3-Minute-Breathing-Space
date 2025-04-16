@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於我們 - 三分鐘呼吸空間</title>
+    <title>關於我們 | 三分鐘呼吸空間</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .about-content {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                margin: 2rem auto;
+            }
+
+            .about-content {
+                padding: 2rem;
+            }
+
+            .about-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -15,8 +67,8 @@
                     <h1>三分鐘呼吸空間</h1>
                 </a>
                 <ul>
-                    <li><a href="project-origin.html">專題起源</a></li>
-                    <li><a href="meditation-benefits.html">冥想好處</a></li>
+                    <li><a href="index.html#project-origin">專題起源</a></li>
+                    <li><a href="index.html#mindfulness-benefits">冥想好處</a></li>
                     <li><a href="meditation-records.html">冥想紀錄</a></li>
                     <li><a href="about-us.html">關於我們</a></li>
                 </ul>
@@ -24,14 +76,24 @@
         </div>
     </header>
 
-    <main class="main">
-        <section class="content-section">
-            <h1>關於我們</h1>
-            <div class="content">
-                <p>我們是一群關注現代人心理健康的設計師和開發者。</p>
-                <p>希望透過這個專案，讓更多人認識並實踐正念冥想，在忙碌的生活中找到寧靜。</p>
+    <main>
+        <section class="about-section">
+            <div class="about-header">
+                <h2>關於我們</h2>
+            </div>
+            
+            <div class="about-content">
+                <p>這個網站是由一位恒生大學學生策劃及設計的最終年專題項目，旨在回應現代人被手機干擾、難以專注當下的生活困境。</p>
+                
+                <p>透過「三分鐘呼吸空間」這個活動，我們邀請你每天花短短三分鐘，練習正念呼吸，學習停下來，覺察當下。希望這個小小的練習，能為你帶來一點寧靜、一份清明，也許還有一點轉化。</p>
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 三分鐘呼吸空間. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html> 
