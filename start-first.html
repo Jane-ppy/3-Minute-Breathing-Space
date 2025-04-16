@@ -328,19 +328,22 @@
             // 發送到 Google Forms
             fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data)
             })
             .then(response => {
-                console.log('Response:', response);
+                // 由於使用 no-cors，我們不能讀取 response 內容
+                // 但如果能進入 then，表示請求已發送成功
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('抱歉，提交時發生錯誤。請稍後再試。');
+                // 顯示更詳細的錯誤訊息
+                alert('抱歉，提交時發生錯誤。\n錯誤訊息：' + error.message);
             });
         });
 
