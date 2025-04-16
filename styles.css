@@ -2174,4 +2174,49 @@ footer {
     background: #f8f8f8;
     border-radius: 8px;
     margin-top: 2rem;
+}
+
+/* 完成反思按鈕樣式 */
+.reflection-section .btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 3rem auto;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(230, 126, 90, 0.2);
+}
+
+.reflection-section .btn-primary:hover {
+    background: #d86a44;  /* 深一點的橙色 */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 90, 0.3);
+}
+
+.reflection-section .btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(230, 126, 90, 0.2);
+}
+
+@media (max-width: 768px) {
+    .reflection-section .btn-primary {
+        padding: 0.9rem 2.5rem;
+        font-size: 1rem;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .reflection-section .btn-primary {
+        padding: 0.8rem 2rem;
+        max-width: 100%;
+    }
 } 
