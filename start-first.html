@@ -313,43 +313,36 @@
             // 收集表單數據
             const formData = new FormData(this);
             const data = {
-                q1: document.getElementById('screen-time').value,
-                q2: formData.get('screenTime'),
-                q3: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
-                q4: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
-                q5: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+                screenTimeValue: document.getElementById('screen-time').value,
+                screenTimeCompare: formData.get('screenTime'),
+                restActivity: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
+                commute: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
+                socialPhone: formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'),
+                experience: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
                     return input.value === 'other' ? formData.get('experienceOther') : input.value;
                 }).join(', '),
-                q6: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
-                q7: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
-                q8: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
+                thoughts: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
+                comparison: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
+                continuation: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
             };
 
-            // 創建一個隱藏的表單來提交數據
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec';
-            form.target = '_blank'; // 在新視窗中打開回應
-
-            // 添加數據到表單
-            Object.keys(data).forEach(key => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = key;
-                input.value = data[key];
-                form.appendChild(input);
-            });
-
-            // 添加表單到文檔並提交
-            document.body.appendChild(form);
-            form.submit();
-            document.body.removeChild(form);
-
-            // 顯示成功訊息並跳轉
-            setTimeout(() => {
+            // 發送到 Google Forms
+            fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
-            }, 1000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('抱歉，提交時發生錯誤。請稍後再試。');
+            });
         });
 
         // 滑輪值即時更新
