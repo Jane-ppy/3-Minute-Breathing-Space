@@ -337,72 +337,43 @@
                 submitButton.disabled = true;
                 submitButton.textContent = '提交中...';
 
-                // 收集表單資料
+                // 準備要發送的數據
                 const formData = {
-                    timestamp: new Date().toISOString(),
-                    screenTime: screenTimeValue,
-                    screenTimeCompare: screenTimeCompare,
-                    
-                    // 休息活動（多選）
-                    restActivity: Array.from(document.querySelectorAll('input[name="restActivity"]:checked'))
+                    q1: screenTimeValue,
+                    q2: screenTimeCompare,
+                    q3: Array.from(document.querySelectorAll('input[name="restActivity"]:checked'))
                         .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    restActivityOther: document.querySelector('input[name="restActivityOther"]')?.value || '',
-                    
-                    // 通勤活動（多選）
-                    commutingActivity: Array.from(document.querySelectorAll('input[name="commutingActivity"]:checked'))
+                        .filter(value => value !== 'other')
+                        .join(', '),
+                    q4: Array.from(document.querySelectorAll('input[name="commutingActivity"]:checked'))
                         .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    commutingActivityOther: document.querySelector('input[name="commutingActivityOther"]')?.value || '',
-                    
-                    // 社交時查看手機
-                    socialPhone: socialPhone,
-                    socialPhoneOther: document.querySelector('input[name="socialPhoneOther"]')?.value || '',
-                    
-                    // 冥想體驗（多選）
-                    meditationExperience: Array.from(document.querySelectorAll('input[name="meditationExperience"]:checked'))
+                        .filter(value => value !== 'other')
+                        .join(', '),
+                    q5: socialPhone,
+                    q6: Array.from(document.querySelectorAll('input[name="meditationExperience"]:checked'))
                         .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    meditationExperienceOther: document.querySelector('input[name="meditationExperienceOther"]')?.value || '',
-                    
-                    // 思緒飄走（多選）
-                    thoughtDrift: Array.from(document.querySelectorAll('input[name="thoughtDrift"]:checked'))
+                        .filter(value => value !== 'other')
+                        .join(', '),
+                    q7: Array.from(document.querySelectorAll('input[name="thoughtDrift"]:checked'))
                         .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    thoughtDriftOther: document.querySelector('input[name="thoughtDriftOther"]')?.value || '',
-                    
-                    // 休息方式比較（多選）
-                    restComparison: Array.from(document.querySelectorAll('input[name="restComparison"]:checked'))
+                        .filter(value => value !== 'other')
+                        .join(', '),
+                    q8: Array.from(document.querySelectorAll('input[name="restComparison"]:checked'))
                         .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    restComparisonOther: document.querySelector('input[name="restComparisonOther"]')?.value || '',
-                    
-                    // 持續練習意願與阻礙（多選）
-                    practiceObstacle: Array.from(document.querySelectorAll('input[name="practiceObstacle"]:checked'))
-                        .map(input => input.value)
-                        .filter(value => value !== 'other'),
-                    practiceObstacleOther: document.querySelector('input[name="practiceObstacleOther"]')?.value || ''
+                        .filter(value => value !== 'other')
+                        .join(', ')
                 };
 
-                console.log('準備發送的資料：', formData);
-
-                // Google Apps Script Web App URL
-                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec';
-                
-                const response = await fetch(SCRIPT_URL, {
+                // 發送數據到 Google Apps Script
+                const response = await fetch('https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec', {
                     method: 'POST',
-                    mode: 'cors',
-                    cache: 'no-cache',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(formData)
                 });
 
-                console.log('收到回應：', response);
-
                 const result = await response.json();
-                console.log('回應內容：', result);
                 
                 if (result.result === 'success') {
                     alert('感謝您的反思！');
@@ -410,6 +381,7 @@
                 } else {
                     throw new Error(result.message || '提交失敗');
                 }
+
             } catch (error) {
                 console.error('提交表單時發生錯誤：', error);
                 alert('抱歉，提交表單時發生錯誤，請稍後再試。\n錯誤訊息：' + error.message);
