@@ -312,18 +312,19 @@
             
             // 收集表單數據
             const formData = new FormData(this);
+            const screenTimeValue = document.getElementById('screen-time').value;
             const data = {
-                screenTimeValue: document.getElementById('screen-time').value,
-                screenTimeCompare: formData.get('screenTime'),
-                restActivity: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
-                commute: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
-                socialPhone: formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'),
-                experience: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+                entry_1: screenTimeValue + " 小時", // 確保在 Google Forms 中顯示完整的答案格式
+                entry_2: formData.get('screenTime'),
+                entry_3: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
+                entry_4: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
+                entry_5: formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'),
+                entry_6: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
                     return input.value === 'other' ? formData.get('experienceOther') : input.value;
                 }).join(', '),
-                thoughts: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
-                comparison: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
-                continuation: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
+                entry_7: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
+                entry_8: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
+                entry_9: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
             };
 
             // 發送到 Google Forms
