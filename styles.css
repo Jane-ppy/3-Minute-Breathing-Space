@@ -644,19 +644,22 @@ footer {
     align-items: center;
     padding: 2rem;
     text-align: center;
+    position: relative;
 }
 
 .stat-number {
     font-size: 3rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: var(--text-light);
+    line-height: 1;
 }
 
 .stat-label {
     font-size: 1.1rem;
-    line-height: 1.4;
+    line-height: 1.3;
     color: var(--text-light);
+    margin-top: -0.5rem;
 }
 
 .stat-content {
@@ -1045,8 +1048,20 @@ footer {
         font-size: 1.2rem;
     }
 
+    .stat-circle {
+        width: 150px;
+        height: 150px;
+        padding: 1.5rem;
+    }
+
     .stat-number {
         font-size: 2.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        margin-top: -0.3rem;
     }
 
     .section-title h3 {
@@ -1055,11 +1070,6 @@ footer {
 
     .impact-grid {
         grid-template-columns: 1fr;
-    }
-
-    .stat-circle {
-        width: 150px;
-        height: 150px;
     }
 }
 
@@ -1136,15 +1146,6 @@ footer {
 @media (max-width: 480px) {
     .impact-grid {
         grid-template-columns: 1fr;
-    }
-
-    .stat-circle {
-        width: 150px;
-        height: 150px;
-    }
-
-    .section-title h3 {
-        font-size: 1.3rem;
     }
 }
 
