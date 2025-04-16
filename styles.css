@@ -882,16 +882,31 @@ footer {
 
     .project-origin-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
+        padding: 0 2rem;
     }
 
     .project-origin-text {
         order: 1;
+        max-width: 100%;
     }
 
     .project-origin-image {
         order: 2;
-        min-height: 250px;
+        min-height: 300px;
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    .project-origin-header {
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .project-origin-header p {
+        font-size: 1.1rem;
+        white-space: normal;
+        line-height: 1.6;
     }
 
     .infographic-grid {
@@ -1040,6 +1055,19 @@ footer {
 
     .brain-drain-image {
         max-width: 246px;
+    }
+
+    .project-origin-image {
+        min-height: 250px;
+        max-width: 100%;
+    }
+
+    .project-origin-header p {
+        font-size: 1rem;
+    }
+
+    .project-origin-content {
+        padding: 0 1rem;
     }
 }
 
