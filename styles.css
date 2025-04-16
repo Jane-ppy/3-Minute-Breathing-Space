@@ -2302,11 +2302,17 @@ footer {
 .video-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 寬高比 */
-    background: #f5f5f5;
-    border-radius: 12px;
+    max-width: 500px; /* 限制最大寬度 */
+    margin: 0 auto;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: #f5f5f5;
+}
+
+/* 垂直影片容器 */
+.video-container.vertical {
+    padding-top: 177.78%; /* 9:16 寬高比 */
 }
 
 .video-container video {
@@ -2364,7 +2370,12 @@ footer {
     }
 
     .video-container {
+        max-width: 100%;
         margin-bottom: 2rem;
+    }
+
+    .video-container.vertical {
+        max-width: 400px; /* 在手機版限制最大寬度 */
     }
 
     .cards-column {
