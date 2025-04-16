@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記錄冥想 | 三分鐘呼吸空間</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">三分鐘呼吸空間</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul>
+                <li><a href="index.html#home">首頁</a></li>
+                <li><a href="index.html#project-origin">專題起源</a></li>
+                <li><a href="index.html#mindfulness-benefits">冥想好處</a></li>
+                <li><a href="index.html#resources">冥想資源</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="record-meditation" class="section">
+            <div class="meditation-container">
+                <h2>記錄冥想</h2>
+                <p class="section-description">選擇適合您的冥想方式，記錄您的體驗</p>
+
+                <!-- 音頻播放器 -->
+                <div class="audio-player">
+                    <h3>街道冥想聲音導航</h3>
+                    <audio id="meditation-audio" controls>
+                        <source src="assets/audio/三分鐘呼吸空間.mp3" type="audio/mpeg">
+                        您的瀏覽器不支持音頻播放。
+                    </audio>
+                </div>
+
+                <!-- YouTube 視頻推薦 -->
+                <div class="video-recommendations">
+                    <h3>推薦冥想視頻</h3>
+                    <div class="video-grid">
+                        <div class="video-card">
+                            <div class="video-tag">自然聲音</div>
+                            <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-tag">身體掃描</div>
+                            <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-tag">呼吸練習</div>
+                            <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 日記記錄 -->
+                <div class="journal-section">
+                    <h3>記錄下你的冥想體驗…</h3>
+                    <div class="mood-selector">
+                        <button class="mood-btn" data-mood="😔">非常低落</button>
+                        <button class="mood-btn" data-mood="😕">有點低落</button>
+                        <button class="mood-btn" data-mood="😐">一般</button>
+                        <button class="mood-btn" data-mood="🙂">還不錯</button>
+                        <button class="mood-btn" data-mood="😊">非常好</button>
+                    </div>
+                    <textarea id="meditation-journal" placeholder="請描述您的冥想體驗..."></textarea>
+                    <button id="save-journal" class="btn primary">保存記錄</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 三分鐘呼吸空間 | CCI4900 畢業專題</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1414,4 +1414,135 @@ footer {
     .stat-image {
         height: 400px;
     }
+}
+
+/* 冥想記錄頁面樣式 */
+.meditation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.audio-player {
+    background-color: var(--bg-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.audio-player h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.audio-player audio {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.video-recommendations {
+    margin: 2rem 0;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.video-card {
+    background-color: var(--bg-light);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+.video-tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.video-card iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: none;
+}
+
+.journal-section {
+    background-color: var(--bg-light);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.mood-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.mood-btn {
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mood-btn:hover,
+.mood-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+#meditation-journal {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid var(--text-secondary);
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    font-family: 'Noto Sans TC', sans-serif;
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mood-selector {
+        flex-wrap: wrap;
+    }
+
+    .meditation-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mood-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+    }
 } 
