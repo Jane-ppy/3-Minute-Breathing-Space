@@ -313,28 +313,29 @@
             // 收集表單數據
             const formData = new FormData(this);
             const screenTimeValue = document.getElementById('screen-time').value;
-            const data = {
-                entry_1: screenTimeValue + " 小時", // 確保在 Google Forms 中顯示完整的答案格式
-                entry_2: formData.get('screenTime'),
-                entry_3: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
-                entry_4: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
-                entry_5: formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'),
-                entry_6: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
-                    return input.value === 'other' ? formData.get('experienceOther') : input.value;
-                }).join(', '),
-                entry_7: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
-                entry_8: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
-                entry_9: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
-            };
+            
+            // 創建 URL 編碼的表單數據
+            const urlEncodedData = new URLSearchParams();
+            urlEncodedData.append('entry.1477524551', screenTimeValue + " 小時");  // 手機使用時間
+            urlEncodedData.append('entry.1065046570', formData.get('screenTime')); // 比預期多少
+            urlEncodedData.append('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity')); // 休息活動
+            urlEncodedData.append('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute')); // 通勤時間
+            urlEncodedData.append('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone')); // 社交時查看手機
+            urlEncodedData.append('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+                return input.value === 'other' ? formData.get('experienceOther') : input.value;
+            }).join(', ')); // 冥想體驗
+            urlEncodedData.append('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts')); // 思緒
+            urlEncodedData.append('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison')); // 比較
+            urlEncodedData.append('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')); // 持續練習
 
             // 發送到 Google Forms
-            fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/formResponse', {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                body: JSON.stringify(data)
+                body: urlEncodedData.toString()
             })
             .then(() => {
                 alert('感謝您的分享！');
