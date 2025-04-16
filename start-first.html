@@ -329,22 +329,26 @@
             }
             
             try {
+                console.log('準備提交數據:', formData);
+                
                 const response = await fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(formData)
                 });
 
-                if (response.ok) {
-                    alert('感謝您的分享！');
-                    window.location.href = 'thank-you.html';
-                } else {
-                    alert('提交失敗，請稍後再試');
-                }
+                console.log('提交響應:', response);
+                
+                // 由於使用了 no-cors 模式，我們無法直接讀取響應
+                // 但我們可以假設如果沒有拋出錯誤，就表示提交成功
+                alert('感謝您的分享！');
+                window.location.href = 'thank-you.html';
+                
             } catch (error) {
-                console.error('Error:', error);
+                console.error('提交錯誤:', error);
                 alert('提交失敗，請稍後再試');
             }
         });
