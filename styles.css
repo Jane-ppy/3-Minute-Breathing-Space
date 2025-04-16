@@ -1441,152 +1441,105 @@ footer {
 
 /* 冥想記錄頁面樣式 */
 .meditation-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    max-width: 800px;
+    margin: 100px auto 50px;
+    padding: 0 2rem;
 }
 
-.audio-player {
-    background: var(--bg-light);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
-    margin: 2rem 0;
+.meditation-header {
     text-align: center;
+    margin-bottom: 3rem;
 }
 
-.audio-player h3 {
+.meditation-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.meditation-header p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.meditation-steps {
+    display: grid;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.step {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.step h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.step p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.meditation-tips {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin-top: 3rem;
+}
+
+.meditation-tips h3 {
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     font-size: 1.5rem;
-    font-weight: 600;
 }
 
-.audio-player audio {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+.meditation-tips ul {
+    list-style: none;
+    padding: 0;
 }
 
-.audio-player audio::-webkit-media-controls-panel {
-    background: var(--bg-light);
-}
-
-.audio-player audio::-webkit-media-controls-current-time-display,
-.audio-player audio::-webkit-media-controls-time-remaining-display {
-    color: var(--text-dark);
-}
-
-.video-recommendations {
-    margin: 2rem 0;
-}
-
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.video-card {
-    background-color: var(--bg-light);
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
+.meditation-tips li {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
     position: relative;
 }
 
-.video-tag {
+.meditation-tips li:before {
+    content: "•";
+    color: var(--primary-color);
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-    z-index: 1;
-}
-
-.video-card iframe {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border: none;
-}
-
-.journal-section {
-    background-color: var(--bg-light);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem 0;
-    box-shadow: var(--shadow-sm);
-}
-
-.mood-selector {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.mood-btn {
-    background: none;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.mood-btn:hover,
-.mood-btn.active {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-}
-
-#meditation-journal {
-    width: 100%;
-    min-height: 200px;
-    padding: 1rem;
-    border: 1px solid var(--text-secondary);
-    border-radius: 0.5rem;
-    margin: 1rem 0;
-    font-family: 'Noto Sans TC', sans-serif;
-    resize: vertical;
+    left: 0;
 }
 
 @media (max-width: 768px) {
-    .video-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .mood-selector {
-        flex-wrap: wrap;
-    }
-
     .meditation-container {
-        padding: 1rem;
+        margin-top: 80px;
+        padding: 0 1rem;
     }
 
-    .audio-player {
-        padding: 1.5rem;
+    .meditation-header h2 {
+        font-size: 2rem;
     }
-    
-    .audio-player h3 {
-        font-size: 1.25rem;
+
+    .step, .meditation-tips {
+        padding: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .video-grid {
-        grid-template-columns: 1fr;
+    .meditation-header h2 {
+        font-size: 1.5rem;
     }
 
-    .mood-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.2rem;
+    .step, .meditation-tips {
+        padding: 1.2rem;
     }
 } 
