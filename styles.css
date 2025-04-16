@@ -638,12 +638,13 @@ footer {
     gap: 3rem;
     margin: 3rem 0;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .stat-image {
     flex-shrink: 0;
-    width: 236px;
-    height: 236px;
+    width: 260px;
+    height: 260px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1028,8 +1029,8 @@ footer {
     }
 
     .stat-image {
-        width: 177px;
-        height: 177px;
+        width: 195px;
+        height: 195px;
     }
 
     .origin-illustration {
@@ -1069,8 +1070,8 @@ footer {
     }
 
     .stat-image {
-        width: 177px;
-        height: 177px;
+        width: 195px;
+        height: 195px;
         padding: 0;
     }
 
@@ -1303,8 +1304,8 @@ footer {
     }
 
     .stat-image {
-        width: 177px;
-        height: 177px;
+        width: 195px;
+        height: 195px;
         padding: 0;
     }
 }
