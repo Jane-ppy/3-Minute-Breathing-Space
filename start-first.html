@@ -332,8 +332,14 @@
                     return;
                 }
 
+                // 顯示載入中訊息
+                const submitButton = document.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.textContent = '提交中...';
+
                 // 收集表單資料
                 const formData = {
+                    timestamp: new Date().toISOString(),
                     screenTime: screenTimeValue,
                     screenTimeCompare: screenTimeCompare,
                     
@@ -375,40 +381,28 @@
                     practiceObstacle: Array.from(document.querySelectorAll('input[name="practiceObstacle"]:checked'))
                         .map(input => input.value)
                         .filter(value => value !== 'other'),
-                    practiceObstacleOther: document.querySelector('input[name="practiceObstacleOther"]')?.value || '',
-                    
-                    // 加入時間戳記
-                    timestamp: new Date().toISOString()
+                    practiceObstacleOther: document.querySelector('input[name="practiceObstacleOther"]')?.value || ''
                 };
 
-                // 顯示載入中訊息
-                const submitButton = document.querySelector('button[type="submit"]');
-                const originalText = submitButton.textContent;
-                submitButton.disabled = true;
-                submitButton.textContent = '提交中...';
+                console.log('準備發送的資料：', formData);
 
                 // Google Apps Script Web App URL
                 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec';
                 
-                console.log('準備發送的資料：', formData); // 記錄發送的資料
-
                 const response = await fetch(SCRIPT_URL, {
                     method: 'POST',
                     mode: 'cors',
+                    cache: 'no-cache',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(formData)
                 });
 
-                console.log('收到回應：', response); // 記錄回應狀態
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                console.log('收到回應：', response);
 
                 const result = await response.json();
-                console.log('回應內容：', result); // 記錄回應內容
+                console.log('回應內容：', result);
                 
                 if (result.result === 'success') {
                     alert('感謝您的反思！');
