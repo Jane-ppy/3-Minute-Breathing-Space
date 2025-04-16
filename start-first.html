@@ -320,72 +320,51 @@
                 return;
             }
 
-            // 創建 Google Forms 提交 URL
-            const formUrl = new URL('https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/formResponse');
-            
-            // 使用 fetch API 提交數據
-            const data = new URLSearchParams();
-            data.append('entry.1477524551', screenTimeValue);
-            data.append('entry.1065046570', formData.get('screenTime'));
-            data.append('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
-            data.append('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
-            data.append('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
-            data.append('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+            // 創建隱藏的 iframe
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.name = 'hidden_iframe';
+            document.body.appendChild(iframe);
+
+            // 創建表單
+            const form = document.createElement('form');
+            form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdAJDPQ7jDlhGyb2UPDZkJS_E6v5ylTZ11Tt8YpHc1UGwL0yw/formResponse';
+            form.method = 'POST';
+            form.target = 'hidden_iframe';
+
+            // 創建並添加表單欄位
+            const createInput = (name, value) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+                form.appendChild(input);
+            };
+
+            // 添加所有問題的答案
+            createInput('entry.1477524551', screenTimeValue);
+            createInput('entry.1065046570', formData.get('screenTime'));
+            createInput('entry.1166974658', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
+            createInput('entry.839337160', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
+            createInput('entry.1846923513', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
+            createInput('entry.1058478884', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
                 return input.value === 'other' ? formData.get('experienceOther') : input.value;
             }).join(', '));
-            data.append('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
-            data.append('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
-            data.append('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
+            createInput('entry.1167213270', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
+            createInput('entry.1102207642', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
+            createInput('entry.1553026398', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
 
-            // 使用 CORS Proxy 來繞過跨域限制
-            const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-            
-            fetch(corsProxy + formUrl.toString(), {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Origin': window.location.origin
-                },
-                body: data.toString()
-            })
-            .then(response => {
-                // 顯示成功訊息並跳轉
+            // 添加表單到文檔並提交
+            document.body.appendChild(form);
+            form.submit();
+
+            // 移除表單和 iframe
+            setTimeout(() => {
+                document.body.removeChild(form);
+                document.body.removeChild(iframe);
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // 如果 CORS Proxy 失敗，嘗試使用 iframe 提交
-                const iframe = document.createElement('iframe');
-                iframe.name = 'hidden_iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
-
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = formUrl.toString();
-                form.target = 'hidden_iframe';
-
-                // 添加所有表單欄位
-                data.forEach((value, key) => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                });
-
-                document.body.appendChild(form);
-                form.submit();
-
-                // 移除表單和 iframe
-                setTimeout(() => {
-                    document.body.removeChild(form);
-                    document.body.removeChild(iframe);
-                    alert('感謝您的分享！');
-                    window.location.href = 'thank-you.html';
-                }, 1000);
-            });
+            }, 1000);
         });
     </script>
 </body>
