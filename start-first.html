@@ -1,4 +1,4 @@
-            <form id="reflectionForm" class="reflection-form" method="POST" action="https://docs.google.com/forms/d/e/1FAIpQLSfYuU8BXMqLQHBPJBXHVtB_k9XRhEUzuk_vLB7RvRKFGVoWQw/formResponse" target="hidden_iframe">
+            <form id="reflectionForm" class="reflection-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfYuU8BXMqLQHBPJBXHVtB_k9XRhEUzuk_vLB7RvRKFGVoWQw/formResponse" method="POST" target="_self">
                 <div class="pre-meditation">
                     <p class="section-title">在冥想前，請花些時間反思以下問題：</p>
                     
@@ -205,19 +205,9 @@
                     <button type="submit" class="btn-primary">完成反思</button>
                 </div>
             </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
     <script>
-        var form = document.getElementById('reflectionForm');
-        var iframe = document.getElementById('hidden_iframe');
-        var isSubmitting = false;
-        
-        form.addEventListener('submit', function(e) {
-            if (isSubmitting) {
-                e.preventDefault();
-                return;
-            }
-            
+        document.getElementById('reflectionForm').addEventListener('submit', function(e) {
             try {
                 // 驗證使用時間
                 const screenTimeValue = document.getElementById('screen-time').value;
@@ -247,35 +237,27 @@
                 const submitButton = document.querySelector('button[type="submit"]');
                 submitButton.disabled = true;
                 submitButton.textContent = '提交中...';
-                isSubmitting = true;
 
-                // 設置提交超時處理
-                const timeout = setTimeout(function() {
-                    if (isSubmitting) {
-                        isSubmitting = false;
-                        submitButton.disabled = false;
-                        submitButton.textContent = '完成反思';
-                        alert('提交時間過長，請重試');
-                    }
-                }, 10000);
-
-                // 監聽 iframe 載入完成事件
-                iframe.addEventListener('load', function submitHandler() {
-                    clearTimeout(timeout);
-                    if (isSubmitting) {
-                        isSubmitting = false;
-                        // 顯示成功訊息
-                        alert('感謝您的反思！');
-                        window.location.href = 'thank-you.html';
-                        // 移除事件監聽器
-                        iframe.removeEventListener('load', submitHandler);
-                    }
-                });
+                // 儲存當前時間以便稍後檢查是否成功提交
+                localStorage.setItem('formSubmitTime', new Date().getTime());
 
             } catch (error) {
                 console.error('提交表單時發生錯誤：', error);
                 alert('抱歉，提交表單時發生錯誤，請稍後再試。\n錯誤訊息：' + error.message);
                 e.preventDefault();
+            }
+        });
+
+        // 當頁面載入時檢查是否是從表單提交返回
+        window.addEventListener('load', function() {
+            const formSubmitTime = localStorage.getItem('formSubmitTime');
+            if (formSubmitTime) {
+                const timeDiff = new Date().getTime() - parseInt(formSubmitTime);
+                // 如果時間差小於 10 秒，表示剛剛提交過表單
+                if (timeDiff < 10000) {
+                    localStorage.removeItem('formSubmitTime');
+                    window.location.href = 'thank-you.html';
+                }
             }
         });
     </script> 
