@@ -35,12 +35,15 @@
                     
                     <div class="question-group">
                         <div class="question">
-                            <h4>請查看一周平均的手機使用時間。這個數字比您預期的多還是少？</h4>
+                            <h4>請查看您「平均每天」的手機使用時間</h4>
                             <div class="slider-container">
-                                <label for="screen-time">請輸入您「平均每天」的手機使用時間（單位：小時）</label>
                                 <input type="range" id="screen-time" class="time-slider" min="0" max="24" step="1" value="0">
                                 <div class="slider-value">你目前選擇的平均每日使用時間是：<span id="time-value">0</span> 小時</div>
                             </div>
+                        </div>
+
+                        <div class="question">
+                            <h4>這個數字比您預期的多還是少？</h4>
                             <div class="options">
                                 <label class="option">
                                     <input type="radio" name="screenTime" value="比預期多">
@@ -151,8 +154,8 @@
                     <p class="audio-guide">請找一個安靜的地方，開始今天的街頭冥想練習</p>
                     <div class="audio-player">
                         <audio controls preload="auto">
-                            <source src="assets/audio/street-meditation.mp3" type="audio/mpeg">
-                            <source src="assets/audio/street-meditation.ogg" type="audio/ogg">
+                            <source src="assets/audio/三分鐘呼吸空間.mp3" type="audio/mpeg">
+                            <source src="assets/audio/三分鐘呼吸空間.ogg" type="audio/ogg">
                             您的瀏覽器不支援音訊播放，請嘗試使用其他瀏覽器
                         </audio>
                     </div>
@@ -308,6 +311,14 @@
             e.preventDefault();
             alert('感謝您的分享！');
             window.location.href = 'thank-you.html';
+        });
+
+        // 滑輪值即時更新
+        const timeSlider = document.getElementById('screen-time');
+        const timeValue = document.getElementById('time-value');
+
+        timeSlider.addEventListener('input', function() {
+            timeValue.textContent = this.value;
         });
     </script>
 </body>
