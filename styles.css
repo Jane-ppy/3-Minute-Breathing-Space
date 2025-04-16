@@ -44,13 +44,20 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
-.header .nav {
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .logo {
@@ -93,7 +100,7 @@ nav ul li a.active::after {
 }
 
 @media (max-width: 768px) {
-    .header .nav {
+    .header .container {
         padding: 0 1.5rem;
     }
 }
