@@ -307,7 +307,7 @@
     </main>
 
     <script>
-        document.getElementById('reflectionForm').addEventListener('submit', function(e) {
+        document.getElementById('reflectionForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // 驗證使用時間
@@ -317,9 +317,79 @@
                 return;
             }
 
-            // 暫時顯示提交成功訊息
-            alert('感謝您的分享！');
-            window.location.href = 'thank-you.html';
+            // 收集表單資料
+            const formData = {
+                screenTime: screenTimeValue,
+                screenTimeCompare: document.querySelector('input[name="screenTimeCompare"]:checked')?.value || '',
+                
+                // 休息活動（多選）
+                restActivity: Array.from(document.querySelectorAll('input[name="restActivity"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                restActivityOther: document.querySelector('input[name="restActivityOther"]')?.value || '',
+                
+                // 通勤活動（多選）
+                commutingActivity: Array.from(document.querySelectorAll('input[name="commutingActivity"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                commutingActivityOther: document.querySelector('input[name="commutingActivityOther"]')?.value || '',
+                
+                // 社交時查看手機
+                socialPhone: document.querySelector('input[name="socialPhone"]:checked')?.value || '',
+                socialPhoneOther: document.querySelector('input[name="socialPhoneOther"]')?.value || '',
+                
+                // 冥想體驗（多選，限三個）
+                meditationExperience: Array.from(document.querySelectorAll('input[name="meditationExperience"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                meditationExperienceOther: document.querySelector('input[name="meditationExperienceOther"]')?.value || '',
+                
+                // 思緒飄走（多選）
+                thoughtDrift: Array.from(document.querySelectorAll('input[name="thoughtDrift"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                thoughtDriftOther: document.querySelector('input[name="thoughtDriftOther"]')?.value || '',
+                
+                // 休息方式比較（多選）
+                restComparison: Array.from(document.querySelectorAll('input[name="restComparison"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                restComparisonOther: document.querySelector('input[name="restComparisonOther"]')?.value || '',
+                
+                // 持續練習意願與阻礙（多選）
+                practiceObstacle: Array.from(document.querySelectorAll('input[name="practiceObstacle"]:checked'))
+                    .map(input => input.value)
+                    .filter(value => value !== 'other'),
+                practiceObstacleOther: document.querySelector('input[name="practiceObstacleOther"]')?.value || '',
+                
+                // 加入時間戳記
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // 替換為您的 Apps Script Web App URL
+                const SCRIPT_URL = 'https://script.google.com/macros/s/NEW_SCRIPT_ID/exec';
+                
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (result.result === 'success') {
+                    alert('感謝您的反思！');
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error('提交失敗');
+                }
+            } catch (error) {
+                console.error('提交表單時發生錯誤：', error);
+                alert('抱歉，提交表單時發生錯誤，請稍後再試。');
+            }
         });
     </script>
 </body>
