@@ -2219,4 +2219,48 @@ footer {
         padding: 0.8rem 2rem;
         max-width: 100%;
     }
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.time-input {
+    width: 120px;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    transition: all 0.3s ease;
+}
+
+.time-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.2);
+}
+
+.time-input::placeholder {
+    color: #999;
+}
+
+.unit {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* 移除數字輸入框的箭頭 */
+.time-input::-webkit-inner-spin-button,
+.time-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.time-input[type=number] {
+    -moz-appearance: textfield;
 } 
