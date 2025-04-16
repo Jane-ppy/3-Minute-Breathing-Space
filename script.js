@@ -170,4 +170,16 @@ document.querySelectorAll('nav a').forEach(link => {
 document.querySelector('.btn.primary').addEventListener('click', (e) => {
     e.preventDefault();
     showModal();
+});
+
+// 滑桿值更新
+document.addEventListener('DOMContentLoaded', function() {
+    const timeSlider = document.getElementById('screen-time');
+    const timeValue = document.getElementById('time-value');
+    
+    if (timeSlider && timeValue) {
+        timeSlider.addEventListener('input', function() {
+            timeValue.textContent = this.value;
+        });
+    }
 }); 

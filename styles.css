@@ -1828,16 +1828,72 @@ footer {
     padding: 0;
     border-radius: 0;
     box-shadow: none;
+    margin-bottom: 2rem;
 }
 
 .question h4 {
     color: var(--text-primary);
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
 }
 
+/* 滑桿容器 */
+.slider-container {
+    margin-bottom: 2rem;
+}
+
+.slider-container label {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+/* 滑桿樣式 */
+.time-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: #e5e7eb;
+    outline: none;
+    -webkit-appearance: none;
+    margin-bottom: 1rem;
+}
+
+.time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.time-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.time-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: none;
+}
+
+.slider-value {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 選項樣式 */
 .options {
     display: flex;
     flex-direction: column;
@@ -1880,8 +1936,7 @@ footer {
     display: none;
 }
 
-.option input[value="other"]:checked ~ .other-option,
-.option input[value="other"]:checked + label + .other-option {
+.option input[value="other"]:checked ~ .other-option {
     display: block;
 }
 
@@ -1899,6 +1954,13 @@ footer {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 2px rgba(230, 126, 90, 0.1);
+}
+
+/* 移除冥想後問題的白色背景 */
+.post-meditation .question {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
 }
 
 /* 音頻播放器樣式 */

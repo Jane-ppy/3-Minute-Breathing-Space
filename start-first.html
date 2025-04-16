@@ -35,7 +35,12 @@
                     
                     <div class="question-group">
                         <div class="question">
-                            <h4>您願意查看今天的手機使用時間嗎？這個數字比您預期的多還是少？</h4>
+                            <h4>請查看一周平均的手機使用時間。這個數字比您預期的多還是少？</h4>
+                            <div class="slider-container">
+                                <label for="screen-time">請輸入一週平均手機使用時間</label>
+                                <input type="range" id="screen-time" class="time-slider" min="0" max="100" step="1" value="0">
+                                <div class="slider-value">你選擇了：<span id="time-value">0</span> 小時</div>
+                            </div>
                             <div class="options">
                                 <label class="option">
                                     <input type="radio" name="screenTime" value="比預期多">
@@ -46,19 +51,8 @@
                                     <span>比預期少</span>
                                 </label>
                                 <label class="option">
-                                    <input type="radio" name="screenTime" value="剛好差不多">
-                                    <span>剛好差不多</span>
-                                </label>
-                                <label class="option">
-                                    <input type="radio" name="screenTime" value="我沒查看">
-                                    <span>我沒查看</span>
-                                </label>
-                                <label class="option">
-                                    <input type="radio" name="screenTime" value="other">
-                                    <span>其他</span>
-                                    <div class="other-option">
-                                        <input type="text" name="screenTimeOther" placeholder="請填寫">
-                                    </div>
+                                    <input type="radio" name="screenTime" value="跟預期差不多">
+                                    <span>跟預期差不多</span>
                                 </label>
                             </div>
                         </div>
@@ -241,20 +235,20 @@
                             <h4>這三分鐘和您平常休息的方式相比，有什麼不同？</h4>
                             <div class="options">
                                 <label class="option">
-                                    <input type="radio" name="comparison" value="更專注">
-                                    <span>更專注</span>
+                                    <input type="radio" name="comparison" value="更能覺察當下">
+                                    <span>我更能覺察當下的身心狀態</span>
                                 </label>
                                 <label class="option">
-                                    <input type="radio" name="comparison" value="更平靜">
-                                    <span>更平靜</span>
+                                    <input type="radio" name="comparison" value="更放鬆">
+                                    <span>我感覺這次的三分鐘更放鬆</span>
                                 </label>
                                 <label class="option">
-                                    <input type="radio" name="comparison" value="不太習慣">
-                                    <span>不太習慣</span>
+                                    <input type="radio" name="comparison" value="依賴手機">
+                                    <span>平常的休息方式比較依賴手機或外部刺激</span>
                                 </label>
                                 <label class="option">
-                                    <input type="radio" name="comparison" value="感覺一樣">
-                                    <span>感覺一樣</span>
+                                    <input type="radio" name="comparison" value="沒有差別">
+                                    <span>沒有太大差別</span>
                                 </label>
                                 <label class="option">
                                     <input type="radio" name="comparison" value="other">
