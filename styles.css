@@ -1750,4 +1750,157 @@ footer {
     .video-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* 反思問卷樣式 */
+.reflection-section {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+}
+
+.reflection-section h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.question-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.question {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.question h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: var(--bg-light);
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background: rgba(230, 126, 90, 0.1);
+}
+
+.option input[type="radio"],
+.option input[type="checkbox"] {
+    display: none;
+}
+
+.option span {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.option input[type="radio"]:checked + span,
+.option input[type="checkbox"]:checked + span {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.option input[type="radio"]:checked + span::before,
+.option input[type="checkbox"]:checked + span::before {
+    content: "✓";
+    margin-right: 0.5rem;
+}
+
+.other-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.other-option input[type="text"] {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.other-option input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(230, 126, 90, 0.2);
+}
+
+/* 冥想音頻部分 */
+.meditation-audio {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.meditation-audio h3 {
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.audio-player {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.audio-player audio {
+    width: 100%;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .reflection-section {
+        padding: 1.5rem;
+    }
+
+    .question {
+        padding: 1rem;
+    }
+
+    .options {
+        flex-direction: column;
+    }
+
+    .option {
+        width: 100%;
+    }
+
+    .other-option {
+        flex-direction: column;
+    }
+
+    .other-option input[type="text"] {
+        width: 100%;
+    }
 } 
