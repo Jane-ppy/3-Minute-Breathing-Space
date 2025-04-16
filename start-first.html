@@ -309,8 +309,51 @@
     <script>
         document.getElementById('reflectionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('感謝您的分享！');
-            window.location.href = 'thank-you.html';
+            
+            // 收集表單數據
+            const formData = new FormData(this);
+            const data = {};
+            
+            // 處理滑桿值
+            data.screenTimeValue = document.getElementById('screen-time').value;
+            
+            // 處理單選題
+            formData.forEach((value, key) => {
+                // 如果是 "other" 選項，檢查對應的文字輸入
+                if (value === 'other') {
+                    const otherValue = formData.get(key + 'Other');
+                    data[key] = otherValue || '其他';
+                } else {
+                    data[key] = value;
+                }
+            });
+
+            // 處理多選題（experience）
+            const experienceChecked = document.querySelectorAll('input[name="experience"]:checked');
+            data.experience = Array.from(experienceChecked).map(input => {
+                if (input.value === 'other') {
+                    return formData.get('experienceOther') || '其他';
+                }
+                return input.value;
+            }).join(', ');
+
+            // 發送到 Google Forms
+            fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                alert('感謝您的分享！');
+                window.location.href = 'thank-you.html';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('抱歉，提交時發生錯誤。請稍後再試。');
+            });
         });
 
         // 滑輪值即時更新
