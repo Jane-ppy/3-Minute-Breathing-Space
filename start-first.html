@@ -325,26 +325,31 @@
                 q8: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
             };
 
-            // 發送到 Google Forms
-            fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                // 由於使用 no-cors，我們不能讀取 response 內容
-                // 但如果能進入 then，表示請求已發送成功
+            // 創建一個隱藏的表單來提交數據
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec';
+            form.target = '_blank'; // 在新視窗中打開回應
+
+            // 添加數據到表單
+            Object.keys(data).forEach(key => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = data[key];
+                form.appendChild(input);
+            });
+
+            // 添加表單到文檔並提交
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+
+            // 顯示成功訊息並跳轉
+            setTimeout(() => {
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // 顯示更詳細的錯誤訊息
-                alert('抱歉，提交時發生錯誤。\n錯誤訊息：' + error.message);
-            });
+            }, 1000);
         });
 
         // 滑輪值即時更新
