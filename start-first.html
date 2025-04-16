@@ -320,51 +320,59 @@
                 return;
             }
 
-            // 創建隱藏的 iframe
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.name = 'hidden_iframe';
-            document.body.appendChild(iframe);
-
-            // 創建表單
-            const form = document.createElement('form');
-            form.action = 'https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec';
-            form.method = 'POST';
-            form.target = 'hidden_iframe';
-
-            // 創建並添加表單欄位
-            const createInput = (name, value) => {
-                const input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = name;
-                input.value = value;
-                form.appendChild(input);
+            // 準備要發送的數據
+            const jsonData = {
+                q1: screenTimeValue,
+                q2: formData.get('screenTime'),
+                q3: formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'),
+                q4: formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'),
+                q5: Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
+                    return input.value === 'other' ? formData.get('experienceOther') : input.value;
+                }).join(', '),
+                q6: formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'),
+                q7: formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'),
+                q8: formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation')
             };
 
-            // 添加所有問題的答案
-            createInput('screenTime', screenTimeValue);
-            createInput('screenTimeCompare', formData.get('screenTime'));
-            createInput('restActivity', formData.get('restActivity') === 'other' ? formData.get('restActivityOther') : formData.get('restActivity'));
-            createInput('commute', formData.get('commute') === 'other' ? formData.get('commuteOther') : formData.get('commute'));
-            createInput('socialPhone', formData.get('socialPhone') === 'other' ? formData.get('socialPhoneOther') : formData.get('socialPhone'));
-            createInput('experience', Array.from(document.querySelectorAll('input[name="experience"]:checked')).map(input => {
-                return input.value === 'other' ? formData.get('experienceOther') : input.value;
-            }).join(', '));
-            createInput('thoughts', formData.get('thoughts') === 'other' ? formData.get('thoughtsOther') : formData.get('thoughts'));
-            createInput('comparison', formData.get('comparison') === 'other' ? formData.get('comparisonOther') : formData.get('comparison'));
-            createInput('continuation', formData.get('continuation') === 'other' ? formData.get('continuationOther') : formData.get('continuation'));
-
-            // 添加表單到文檔並提交
-            document.body.appendChild(form);
-            form.submit();
-
-            // 移除表單和 iframe
-            setTimeout(() => {
-                document.body.removeChild(form);
-                document.body.removeChild(iframe);
+            // 發送數據到 Google Apps Script
+            fetch('https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => {
                 alert('感謝您的分享！');
                 window.location.href = 'thank-you.html';
-            }, 1000);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // 如果 fetch 失敗，使用表單提交作為備用方案
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = 'https://script.google.com/macros/s/AKfycbwkUS_QMCQ95Iv9z3e7wTsTnQvgSR7N2lFtfT9YGMDcRTXTBXcXgPuNT4PYkSpEDdrY/exec';
+                form.target = '_blank';
+
+                // 添加隱藏的輸入欄位
+                Object.entries(jsonData).forEach(([key, value]) => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    form.appendChild(input);
+                });
+
+                // 提交表單
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+
+                setTimeout(() => {
+                    alert('感謝您的分享！');
+                    window.location.href = 'thank-you.html';
+                }, 1000);
+            });
         });
     </script>
 </body>
