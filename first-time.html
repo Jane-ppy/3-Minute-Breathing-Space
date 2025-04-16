@@ -68,6 +68,20 @@
                 margin-left: 1rem;
             }
         }
+
+        audio::-webkit-media-controls-panel {
+            background-color: #f8f9fa;
+        }
+        audio::-webkit-media-controls-enclosure {
+            border-radius: 8px;
+        }
+        audio::-webkit-media-controls-download-button {
+            display: none;
+        }
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-play-button {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +136,8 @@
 
                             <div class="audio-container">
                                 <audio controls
+                                       controlsList="nodownload"
+                                       oncontextmenu="return false;"
                                        aria-label="三分鐘呼吸空間引導音檔">
                                     <source src="assets/audio/三分鐘呼吸空間.mp3" type="audio/mpeg">
                                     您的瀏覽器不支援音訊播放。
