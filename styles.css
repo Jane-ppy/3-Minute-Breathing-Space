@@ -34,74 +34,59 @@ body {
 }
 
 /* 導航欄 */
-.header {
-    background: var(--bg-light);
-    padding: 1rem 0;
+header {
     position: fixed;
-    width: 100%;
     top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
-}
-
-.header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    height: 2rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 
 nav ul {
     display: flex;
-    list-style: none;
     gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--text-primary);
+    font-size: 1rem;
     font-weight: 400;
-    transition: var(--transition);
-    position: relative;
+    transition: color 0.3s;
 }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: var(--transition);
-}
-
-nav ul li a:hover::after,
-nav ul li a.active::after {
-    width: 100%;
+nav ul li a:hover {
+    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {
-    .header .container {
-        padding: 0 1.5rem;
+    nav {
+        padding: 1rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
     }
 }
 
