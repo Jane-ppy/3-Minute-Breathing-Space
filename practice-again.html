@@ -7,6 +7,148 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .meditation-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .meditation-content {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        /* 音頻播放器樣式 */
+        .audio-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+        }
+
+        .audio-section h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 1.5rem 0;
+        }
+
+        .audio-player audio {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* 推薦練習區域 */
+        .recommended-section {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .recommended-section h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .video-grid iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 問卷按鈕區域 */
+        .form-section {
+            text-align: center;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            margin-top: 3rem;
+        }
+
+        .form-section p {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-button {
+            display: inline-block;
+            background-color: #f28c6a;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-button:hover {
+            background-color: #e06a49;
+            transform: translateY(-2px);
+        }
+
+        .thank-you-message {
+            text-align: center;
+            color: #5d6d7e;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .meditation-section {
+                padding: 2rem 1rem;
+            }
+
+            .meditation-content {
+                padding: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recommended-section,
+            .audio-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,43 +167,37 @@
 
     <main>
         <section class="meditation-section">
-            <div class="container">
-                <h2>歡迎再次練習三分鐘正念！</h2>
-                
-                <div class="meditation-content">
-                    <p>可以先聆聽下方「街頭三分鐘正念體驗」音檔：</p>
-
+            <div class="section-title">
+                <h2>再練三分鐘</h2>
+            </div>
+            
+            <div class="meditation-content">
+                <!-- 音頻區域 -->
+                <div class="audio-section">
+                    <h3>🎧 街頭三分鐘正念體驗</h3>
                     <div class="audio-player">
-                        <audio controls>
-                            <source src="assets/audio/meditation.mp3" type="audio/mpeg">
+                        <audio controls controlsList="nodownload">
+                            <source src="assets/audio/三分鐘呼吸空間.mp3" type="audio/mpeg">
                             您的瀏覽器不支援音訊播放。
                         </audio>
                     </div>
+                </div>
 
-                    <div class="additional-resources">
-                        <h3>其他推薦練習</h3>
-                        <p>如果你想嘗試其他類型的正念練習，也推薦：</p>
-                        <ul>
-                            <li>
-                                <a href="https://www.youtube.com/results?search_query=正念呼吸" target="_blank">
-                                    <i class="fab fa-youtube"></i> YouTube 正念呼吸練習
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.youtube.com/results?search_query=正念+身體掃描" target="_blank">
-                                    <i class="fab fa-youtube"></i> 正念身體掃描 Body Scan
-                                </a>
-                            </li>
-                        </ul>
+                <!-- 推薦練習區域 -->
+                <div class="recommended-section">
+                    <h3>✨ 其他推薦練習</h3>
+                    <div class="video-grid">
+                        <iframe src="https://www.youtube.com/embed/f68pG7bAraw?si=N1NCS2dFV8_AzNx7" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/kACTFxBtweg?si=nsCdPuhcO5q5q662" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/l4kYzSxie-Y?si=o1A-b4iFmX3lQ3NM" frameborder="0" allowfullscreen></iframe>
                     </div>
+                </div>
 
-                    <p>完成後，歡迎回到問卷頁面填寫你這次的體驗回饋：</p>
-                    
-                    <div class="action-button">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXp7n4mtSWV3tcdTQycZQ-BVn536BFhCo-3AVY8uoSKjjbZg/viewform?usp=dialog" class="btn btn-primary" target="_blank">
-                            👉 填寫問卷（完整）
-                        </a>
-                    </div>
+                <!-- 問卷按鈕區域 -->
+                <div class="form-section">
+                    <p>完成冥想後，歡迎點擊下方按鈕，記錄這次的體驗：</p>
+                    <a href="https://forms.gle/htxtATRVdpGT6dyC7" target="_blank" class="form-button">📝 記錄這次練習</a>
+                    <p class="thank-you-message">感謝你的練習，希望這三分鐘為你帶來一點寧靜 🌿</p>
                 </div>
             </div>
         </section>
