@@ -1867,7 +1867,7 @@ footer {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: #dd835e;
     cursor: pointer;
     transition: transform 0.2s;
 }
@@ -1880,10 +1880,28 @@ footer {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--primary-color);
+    background: #dd835e;
     cursor: pointer;
     transition: transform 0.2s;
     border: none;
+}
+
+.time-slider::-webkit-slider-runnable-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.time-slider::-moz-range-track {
+    background: #e5e7eb;
+    height: 8px;
+    border-radius: 4px;
+}
+
+.time-slider::-webkit-slider-progress {
+    background: #dd835e;
+    border-radius: 4px;
+    height: 8px;
 }
 
 .slider-value {
@@ -1957,10 +1975,21 @@ footer {
 }
 
 /* 移除冥想後問題的白色背景 */
+.post-meditation {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    margin: 2rem 0;
+}
+
 .post-meditation .question {
     background: transparent;
     padding: 0;
     box-shadow: none;
+}
+
+.post-meditation .section-title {
+    margin-bottom: 2rem;
 }
 
 /* 音頻播放器樣式 */
@@ -1970,7 +1999,7 @@ footer {
     border-radius: 16px;
     margin: 3rem auto;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-sm);
     max-width: 600px;
 }
 
@@ -1996,28 +2025,6 @@ footer {
 
 .audio-player audio {
     width: 100%;
-}
-
-.action-buttons {
-    text-align: center;
-    margin-top: 3rem;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(230, 126, 90, 0.2);
 }
 
 /* 響應式設計 */

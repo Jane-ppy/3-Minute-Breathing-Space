@@ -37,9 +37,9 @@
                         <div class="question">
                             <h4>請查看一周平均的手機使用時間。這個數字比您預期的多還是少？</h4>
                             <div class="slider-container">
-                                <label for="screen-time">請輸入一週平均手機使用時間</label>
-                                <input type="range" id="screen-time" class="time-slider" min="0" max="100" step="1" value="0">
-                                <div class="slider-value">你選擇了：<span id="time-value">0</span> 小時</div>
+                                <label for="screen-time">請輸入您「平均每天」的手機使用時間（單位：小時）</label>
+                                <input type="range" id="screen-time" class="time-slider" min="0" max="24" step="1" value="0">
+                                <div class="slider-value">你目前選擇的平均每日使用時間是：<span id="time-value">0</span> 小時</div>
                             </div>
                             <div class="options">
                                 <label class="option">
@@ -150,9 +150,10 @@
                     <h3>三分鐘街頭冥想</h3>
                     <p class="audio-guide">請找一個安靜的地方，開始今天的街頭冥想練習</p>
                     <div class="audio-player">
-                        <audio controls>
+                        <audio controls preload="auto">
                             <source src="assets/audio/street-meditation.mp3" type="audio/mpeg">
-                            您的瀏覽器不支援音訊播放
+                            <source src="assets/audio/street-meditation.ogg" type="audio/ogg">
+                            您的瀏覽器不支援音訊播放，請嘗試使用其他瀏覽器
                         </audio>
                     </div>
                 </div>
