@@ -1424,21 +1424,34 @@ footer {
 }
 
 .audio-player {
-    background-color: var(--bg-light);
-    border-radius: 1rem;
+    background: var(--bg-light);
+    border-radius: 12px;
     padding: 2rem;
-    margin: 2rem 0;
     box-shadow: var(--shadow-sm);
+    margin: 2rem 0;
+    text-align: center;
 }
 
 .audio-player h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .audio-player audio {
     width: 100%;
-    margin-top: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.audio-player audio::-webkit-media-controls-panel {
+    background: var(--bg-light);
+}
+
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+    color: var(--text-dark);
 }
 
 .video-recommendations {
@@ -1532,6 +1545,14 @@ footer {
 
     .meditation-container {
         padding: 1rem;
+    }
+
+    .audio-player {
+        padding: 1.5rem;
+    }
+    
+    .audio-player h3 {
+        font-size: 1.25rem;
     }
 }
 
