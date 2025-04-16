@@ -337,75 +337,58 @@
                 submitButton.disabled = true;
                 submitButton.textContent = '提交中...';
 
-                // 準備要發送的數據
-                const formData = new FormData();
-                formData.append('timestamp', new Date().toISOString());
-                formData.append('screenTime', screenTimeValue);
-                formData.append('screenTimeCompare', screenTimeCompare);
-                
-                // 收集多選項數據
-                const restActivity = Array.from(document.querySelectorAll('input[name="restActivity"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('restActivity', restActivity.join('、'));
-                formData.append('restActivityOther', document.querySelector('input[name="restActivityOther"]')?.value || '');
+                // 收集表單數據
+                const jsonData = {
+                    timestamp: new Date().toISOString(),
+                    screenTime: screenTimeValue,
+                    screenTimeCompare: screenTimeCompare,
+                    restActivity: Array.from(document.querySelectorAll('input[name="restActivity"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    restActivityOther: document.querySelector('input[name="restActivityOther"]')?.value || '',
+                    commutingActivity: Array.from(document.querySelectorAll('input[name="commutingActivity"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    commutingActivityOther: document.querySelector('input[name="commutingActivityOther"]')?.value || '',
+                    socialPhone: socialPhone,
+                    socialPhoneOther: document.querySelector('input[name="socialPhoneOther"]')?.value || '',
+                    meditationExperience: Array.from(document.querySelectorAll('input[name="meditationExperience"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    meditationExperienceOther: document.querySelector('input[name="meditationExperienceOther"]')?.value || '',
+                    thoughtDrift: Array.from(document.querySelectorAll('input[name="thoughtDrift"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    thoughtDriftOther: document.querySelector('input[name="thoughtDriftOther"]')?.value || '',
+                    restComparison: Array.from(document.querySelectorAll('input[name="restComparison"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    restComparisonOther: document.querySelector('input[name="restComparisonOther"]')?.value || '',
+                    practiceObstacle: Array.from(document.querySelectorAll('input[name="practiceObstacle"]:checked'))
+                        .map(input => input.value)
+                        .filter(value => value !== 'other')
+                        .join('、'),
+                    practiceObstacleOther: document.querySelector('input[name="practiceObstacleOther"]')?.value || ''
+                };
 
-                const commutingActivity = Array.from(document.querySelectorAll('input[name="commutingActivity"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('commutingActivity', commutingActivity.join('、'));
-                formData.append('commutingActivityOther', document.querySelector('input[name="commutingActivityOther"]')?.value || '');
+                // 發送請求
+                const response = await fetch('https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(jsonData)
+                });
 
-                formData.append('socialPhone', socialPhone);
-                formData.append('socialPhoneOther', document.querySelector('input[name="socialPhoneOther"]')?.value || '');
-
-                const meditationExperience = Array.from(document.querySelectorAll('input[name="meditationExperience"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('meditationExperience', meditationExperience.join('、'));
-                formData.append('meditationExperienceOther', document.querySelector('input[name="meditationExperienceOther"]')?.value || '');
-
-                const thoughtDrift = Array.from(document.querySelectorAll('input[name="thoughtDrift"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('thoughtDrift', thoughtDrift.join('、'));
-                formData.append('thoughtDriftOther', document.querySelector('input[name="thoughtDriftOther"]')?.value || '');
-
-                const restComparison = Array.from(document.querySelectorAll('input[name="restComparison"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('restComparison', restComparison.join('、'));
-                formData.append('restComparisonOther', document.querySelector('input[name="restComparisonOther"]')?.value || '');
-
-                const practiceObstacle = Array.from(document.querySelectorAll('input[name="practiceObstacle"]:checked'))
-                    .map(input => input.value)
-                    .filter(value => value !== 'other');
-                formData.append('practiceObstacle', practiceObstacle.join('、'));
-                formData.append('practiceObstacleOther', document.querySelector('input[name="practiceObstacleOther"]')?.value || '');
-
-                // 創建一個隱藏的表單並提交
-                const form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'https://script.google.com/macros/s/AKfycbz6vCRKRvY9EYbh8ZKz5fa7x-dBR_G2rfl4wBib0k_LpvbKsT8bziAwCzsX85ntlBwMFA/exec';
-
-                // 將 FormData 轉換為隱藏的輸入欄位
-                for (const [key, value] of formData.entries()) {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = key;
-                    input.value = value;
-                    form.appendChild(input);
-                }
-
-                // 將表單添加到文檔並提交
-                document.body.appendChild(form);
-                form.submit();
-
-                // 顯示成功訊息並跳轉
-                setTimeout(() => {
-                    alert('感謝您的反思！');
-                    window.location.href = 'thank-you.html';
-                }, 1000);
+                // 顯示成功訊息
+                alert('感謝您的反思！');
+                window.location.href = 'thank-you.html';
 
             } catch (error) {
                 console.error('提交表單時發生錯誤：', error);
