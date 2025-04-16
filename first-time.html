@@ -7,6 +7,68 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .step-container {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .step-content {
+            margin-left: 2rem;
+        }
+
+        .action-button {
+            margin: 1.5rem 0;
+        }
+
+        .action-button .btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .action-button .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .audio-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 1.5rem 0;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .audio-player audio {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .step-container {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .step-content {
+                margin-left: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,24 +93,61 @@
                 <h2>歡迎初次體驗三分鐘正念！</h2>
                 
                 <div class="meditation-content">
-                    <p>感謝你願意參與這次的正念練習。請先點擊以下連結，填寫問卷的<strong>第一部分</strong>：</p>
-                    
-                    <div class="action-button">
-                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXp7n4mtSWV3tcdTQycZQ-BVn536BFhCo-3AVY8uoSKjjbZg/viewform?usp=dialog" class="btn btn-primary" target="_blank">
-                            👉 填寫問卷（第一部分）
-                        </a>
+                    <!-- Step 1 -->
+                    <div class="step-container">
+                        <div class="step-number">
+                            📝 第一步：填寫問卷前半部分
+                        </div>
+                        <div class="step-content">
+                            <p>感謝你願意參與這次的正念練習。請先點擊以下連結，填寫問卷的<strong>第一部分</strong>：</p>
+                            
+                            <div class="action-button">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXp7n4mtSWV3tcdTQycZQ-BVn536BFhCo-3AVY8uoSKjjbZg/viewform?usp=dialog" 
+                                   class="btn btn-primary" 
+                                   target="_blank"
+                                   aria-label="開啟新視窗填寫問卷第一部分">
+                                    👉 填寫問卷（第一部分）
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <p>填完後，請返回本頁，點擊下方音檔進行「街頭三分鐘正念體驗」：</p>
+                    <!-- Step 2 -->
+                    <div class="step-container">
+                        <div class="step-number">
+                            🔊 第二步：聆聽引導音檔
+                        </div>
+                        <div class="step-content">
+                            <p>填完問卷第一部分後，請聆聽以下的「街頭三分鐘正念體驗」音檔：</p>
 
-                    <div class="audio-player">
-                        <audio controls>
-                            <source src="assets/audio/meditation.mp3" type="audio/mpeg">
-                            您的瀏覽器不支援音訊播放。
-                        </audio>
+                            <div class="audio-container">
+                                <audio controls
+                                       aria-label="三分鐘呼吸空間引導音檔">
+                                    <source src="assets/audio/3分鐘呼吸空間.mp3" type="audio/mpeg">
+                                    您的瀏覽器不支援音訊播放。
+                                </audio>
+                            </div>
+                        </div>
                     </div>
 
-                    <p>完成音檔後，再次返回問卷頁面，繼續填寫<strong>第二部分</strong>。</p>
+                    <!-- Step 3 -->
+                    <div class="step-container">
+                        <div class="step-number">
+                            📩 第三步：完成問卷
+                        </div>
+                        <div class="step-content">
+                            <p>完成音檔練習後，請返回問卷頁面，繼續填寫<strong>第二部分</strong>。</p>
+                            
+                            <div class="action-button">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeXp7n4mtSWV3tcdTQycZQ-BVn536BFhCo-3AVY8uoSKjjbZg/viewform?usp=dialog" 
+                                   class="btn btn-primary" 
+                                   target="_blank"
+                                   aria-label="開啟新視窗繼續填寫問卷第二部分">
+                                    👉 返回問卷
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
