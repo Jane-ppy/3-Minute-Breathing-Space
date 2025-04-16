@@ -12,6 +12,7 @@
     --accent-color: #e67e5a;
     --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 12px rgba(0,0,0,0.2);
     --transition: all 0.3s ease;
 }
 
@@ -1776,154 +1777,258 @@ footer {
 /* 反思問卷樣式 */
 .reflection-section {
     background: var(--bg-light);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    margin: 2rem 0;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    margin-top: 3rem;
 }
 
 .reflection-section h3 {
     color: var(--text-dark);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
     text-align: center;
+    font-weight: 500;
 }
 
 .question-group {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.question {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.question h4 {
+.question-group h4 {
     color: var(--text-dark);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     font-weight: 500;
 }
 
 .options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
 }
 
 .option {
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
-    background: var(--bg-light);
-    border: 1px solid var(--primary-color);
-    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    background: white;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .option:hover {
-    background: rgba(230, 126, 90, 0.1);
+    background: var(--primary-light);
+    border-color: var(--primary-color);
 }
 
-.option input[type="radio"],
-.option input[type="checkbox"] {
-    display: none;
+.option input[type="radio"] {
+    margin-right: 0.8rem;
+    accent-color: var(--primary-color);
 }
 
 .option span {
     color: var(--text-dark);
-    font-size: 0.95rem;
 }
 
-.option input[type="radio"]:checked + span,
-.option input[type="checkbox"]:checked + span {
-    color: var(--primary-color);
-    font-weight: 500;
-}
-
-.option input[type="radio"]:checked + span::before,
-.option input[type="checkbox"]:checked + span::before {
-    content: "✓";
-    margin-right: 0.5rem;
-}
-
-.other-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
+textarea {
     width: 100%;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: white;
 }
 
-.other-option input[type="text"] {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 50px;
-    font-size: 0.95rem;
+textarea:focus {
     outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-light);
 }
 
-.other-option input[type="text"]:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(230, 126, 90, 0.2);
+.action-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 /* 冥想音頻部分 */
 .meditation-audio {
     background: var(--bg-light);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
     margin: 2rem 0;
     text-align: center;
     max-width: 600px;
     margin: 0 auto 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.meditation-audio:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 .meditation-audio h3 {
     color: var(--text-dark);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.audio-guide {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
 
 .audio-player {
     max-width: 400px;
     margin: 0 auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
 }
 
 .audio-player audio {
     width: 100%;
+    height: 40px;
+}
+
+.audio-player audio::-webkit-media-controls-panel {
+    background-color: white;
+}
+
+.audio-player audio::-webkit-media-controls-play-button {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+    color: var(--text-dark);
 }
 
 /* 響應式設計 */
 @media (max-width: 768px) {
-    .reflection-section {
-        padding: 1.5rem;
-    }
-
-    .question {
-        padding: 1rem;
+    .meditation-audio {
+        padding: 2rem;
     }
 
     .options {
+        grid-template-columns: 1fr;
+    }
+
+    .reflection-section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .meditation-audio {
+        padding: 1.5rem;
+    }
+
+    .meditation-audio h3 {
+        font-size: 1.5rem;
+    }
+
+    .audio-guide {
+        font-size: 1rem;
+    }
+}
+
+/* 感謝頁面樣式 */
+.thank-you-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 3rem;
+    background: var(--bg-light);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.thank-you-section h2 {
+    color: var(--text-dark);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.thank-you-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .thank-you-section {
+        padding: 2rem;
+        margin: 80px auto;
+    }
+
+    .action-buttons {
         flex-direction: column;
     }
 
-    .option {
+    .btn, .btn-outline {
         width: 100%;
     }
+}
 
-    .other-option {
-        flex-direction: column;
+@media (max-width: 480px) {
+    .thank-you-section {
+        padding: 1.5rem;
     }
 
-    .other-option input[type="text"] {
-        width: 100%;
+    .thank-you-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .thank-you-section p {
+        font-size: 1rem;
     }
 } 
